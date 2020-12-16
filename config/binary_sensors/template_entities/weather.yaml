@@ -1,0 +1,9 @@
+it_precipitates_now:
+  friendly_name: "It Precipitates Now"
+  value_template: >-
+    {% set wet_conditions = ['rainy', 'pouring', 'hail', 'snowy', 'snowy-rainy', 'lightning-rainy'] %}
+    {{ states.weather.met_office_wimbledon.state in wet_conditions or
+      states.weather.home.state in wet_conditions or
+      states.weather.openweathermap.state in wet_conditions or
+      states.sensor.openweathermap_rain.state | float > 0 or
+      states.sensor.netatmo_whatley_avenue_base_station_rain_gauge_rain.state | float > 0 }}

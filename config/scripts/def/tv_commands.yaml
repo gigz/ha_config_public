@@ -1,0 +1,727 @@
+toggle_tv:
+  alias: TV Toggle
+  icon: "mdi:television"
+  description: "Toggle TV and home theater power on/off"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_tv_power
+    - service: script.ir_cmd_home_theater_power
+
+turn_off_tv_and_lights:
+  alias: Turn Off TV And Lights
+  icon: "mdi:television"
+  description: "Toggle TV and Turn Off TV Lights"
+  mode: queued
+  sequence:
+    - service: script.toggle_tv
+    - delay: "00:01"
+    - service: light.turn_off
+      data:
+        entity_id:
+        - group.tv_color_lights
+
+tv_source_amazon:
+  alias: TV Source Amazon
+  icon: "mdi:amazon"
+  description: "Switch TV source to Amazon Fire TV"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_hdmi_switch_one
+
+tv_source_google:
+  alias: TV Source Google
+  icon: "mdi:google-chrome"
+  description: "Switch TV source to Google Chromecast"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_hdmi_switch_two
+
+tv_source_xbox:
+  alias: TV Source X-Box
+  icon: "mdi:microsoft-xbox-controller"
+  description: "Switch TV source to xbox"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_hdmi_switch_three
+
+tv_source_home_theater:
+  alias: TV Source Home Theater
+  icon: "mdi:album"
+  description: "Switch TV source to home theater"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_hdmi_switch_four
+
+tv_source_hdmi:
+  alias: TV Source HDMI
+  icon: "mdi:tv-source-hdmi"
+  description: "Switch TV source to HDMI"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_hdmi_switch_five
+
+tv_volume_up:
+  alias: TV Volume Up
+  icon: "mdi:volume-plus"
+  description: "Turn TV volume up"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_tv_volume_up
+    - service: script.ir_cmd_home_theater_volume_up
+
+tv_volume_down:
+  alias: TV Volume Down
+  icon: "mdi:volume-minus"
+  description: "Turn TV volume down"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_tv_volume_down
+    - service: script.ir_cmd_home_theater_volume_down
+
+tv_mute:
+  alias: TV Mute
+  icon: "mdi:volume-mute"
+  description: "Mute TV"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_tv_mute
+    - service: script.ir_cmd_home_theater_mute
+
+tv_optical:
+  alias: TV Optical Sound Input
+  icon: "mdi:video-input-component"
+  description: "Optical Sound Input"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_home_theater_optical
+
+turn_on_fish_tank:
+  alias: Turn On Fish Tank
+  icon: "mdi:fishbowl-outline"
+  description: "Turn On Fish Tank Light"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_fishtank_night
+    - service: script.ir_cmd_fishtank_power
+
+turn_off_fish_tank:
+  alias: Turn Off Fish Tank
+  icon: "mdi:fishbowl"
+  description: "Turn Off Fish Tank Light"
+  mode: queued
+  sequence:
+    - service: script.ir_cmd_fishtank_night
+    - service: script.ir_cmd_fishtank_power
+    - service: script.ir_cmd_fishtank_power
+
+ir_cmd_fishtank_brighter:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKpUSExMTEhMTEhQSEhMTExMSEjgSNxM3EzcTEhM3EzcSOBI3EzcUNhITFBITEhMSExMSExITExMSOBI3EzcSOBM3EwAFQwABK0kUAAxYAAEqSxIADQU=
+
+ir_cmd_fishtank_color_0:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABK5QUEhIUEhMSFBISExMSExITEzcUNhM3EzcSExM3EzcTNxMSExITNxQSEhMTEhMTEhMSOBM3EhMTNxM3EjgSNxQ2EwAFRAABKksSAAxaAAEsSRMADQU=
+
+ir_cmd_fishtank_color_1:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABK5QTExITExITExMSEhQTEhITEzcTNxM3EjcTExI4EzYTNxMTExISExQ2FBITEhITExMTNxM2EzcTExM2FDYTNxM3EwAFQwABK0oUAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_color_10:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABK5UTExEUExISExMTEhMSExQSEjgSNxM3EzcSFBI3EzcSOBITEzcTNxITFBITEhMTExISOBITEhQTNhM3EzcSOBM2FAAFQwABK0kTAAxaAAErSRMADQU=
+
+ir_cmd_fishtank_color_11:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABK5QTExITExMSExMTEhMSExQSEjgSNxM3EzcTEhQ2EzcSOBITEzcTEhM3ExMSExITExMSNxMTEjgTEhM3EzcSNxM3EwAFRAABKksSAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_color_12:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABK5USExMTEhMSExMTExIUEhITEzcTNxM3EjcUEhI4EjgSNxMTEzcTNxM2FBITEhMTExITNxITFBISExM3FDYTNxM3EwAFRAABKksSAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_color_13:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABK5UTEhMTEhMUEhMSExIUEhITEzcTNxM3EzcSExM3EzcTNxITEjgTEhMTEzcSExITExMSOBMSEzcSOBITEzcSOBI4EgAFRQABK0oTAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_color_14:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABKpUTExITExMSExMTEhQRExMTEjgTNhM3EzcTEhU1EzcSOBMSFDYTNxIUEzYTExMSExMTNhQSEhMTNxITEzcTNxM3EgAFRQABK0oTAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_color_2:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABK5UTEhQSExITExMSExIUEhITEzcSOBI4EjgSExM3EjgTNhQTERMTNxM3ExITExMSEhQTNhM3FBITEhM3EjgTNxI3FAAFQwABLEkSAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_color_3:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABK5USExMSFBISExITFBISExQSEjgSNxU1EzcTEhQ2FDYTNxMSExMTEhMTEjcTExITFBISOBM2FDYTNxMTEjcUNhM3EwAFRAABK0oTAAxZAAErShMADQU=
+
+ir_cmd_fishtank_color_4:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABLJQTEhMTExISExMTEhMTExITEjgTNxM2EzcTExI3EzcTNxMSExMTNxITEjgTEhMTEhMSOBM3ExITNxITEzcSOBI4EgAFRQABKkoTAAxbAAErShMADQU=
+
+ir_cmd_fishtank_color_5:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABK5USExMTExISExMTEhMTExIUETgSOBM3EjcUEhI4EzYTNxQ2FBITNhQSEhMTExITEhMUEhM3EhMSOBM3EjgTNhQ2EwAFRAABKksTAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_color_6:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABLJQSExMSExMTEhMTEhQSExITEzcSOBM2EzcUEhI4EzYTNxM3ExMTEhI4ExITExMSEhQSExI4EzcTEhM3EzcSOBI3FAAFQwABK0oTAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_color_7:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABK5UTExMSEhMTExITExMSFBITEzYTNxM3EzcTEhM3EzcTNxI4EhMUNhM3ExITExIUEhMSExM3EhQSExI4EjgSOBI3FAAFQQABLUsSAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_color_8:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABKpUUEhITFBISExQSExITExITEjgSOBM3EjcTExI4EjgTNhQ2ExMTEhMTEzYUEhITExMSExM3EzcSOBITEjgTNxM3EgAFRQABK0oTAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_color_9:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABLJQTExITExITExITExMTEhMTEzYUNhM3EzcTEhQ2EzcTNxI4EhMTNxITFDYTExITExIUEhI4ExITNxMSFDYTNxM3EgAFRQABLEkUAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_darker:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABKpUTEhITFBISExITFBISExMSFDYTNxM3EjgSExM3EjgSNxM3EzcTEhM3ExITExITExIUEhITEjgTEhM3EzcSOBM2EwAFRAABKkoSAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_night:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKpUTExMSEhMTExMSExIUEhITEzcTNxI3FDYUEhM2EzcTNxM3EzYUNhM3EhMTExITEhQTEhITExMTEhI4EzcSNxQ2EwAFRAABKkoTAAxaAAEqShMADQU=
+
+ir_cmd_fishtank_power:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABK5UTEhQSExITEhQSExIUEhMSEzcTNxM3EzYUEhI4EjgSNxQ2FDYTExMSEhMTExITExMSExMSEzcTNxM3EjgTNxI3FAAFRAABKksSAAxbAAEsSRMADQU=
+
+ir_cmd_fishtank_rgb_brighter:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABLJQTExMSExMSExITEhQTExITEjcSOBI4EzcTExE4EjcTNxMTEhQRFBMSExISFBIUERQSNxM3EjgTNxI3EzcTNxI4EgAFQwABLEoSAAxZAAEqSxMADQU=
+
+ir_cmd_fishtank_rgb_darker:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABK5UTExMTERMTFBISExQRFBEUEzYUNhI4EzcSExI4EjgTNxI3ExMTEhMTEhQRFBMSExMSFBI2FDYTNxM3EjgSOBI3EwAFQwABK0oUAA0FAAAAAAAAAAA=
+
+ir_cmd_fishtank_rgb_power:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABK5QUEhIUEhITFBEUEhQSExETEzcTNxI4EzcSExI4EzcTNhQTETgSFBEUEhMTEhMTEhMSOBMSEzcTNxI4EzYUNhQ2EgAFRQABKksTAAxZAAEqSxMADQU=
+
+ir_cmd_fishtank_rgb_rotate:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABK5QTEhMTEhMTEhQSEhMTExMSEzcSNxM3EzcTEhM3FDYSOBI3FDYTNxMSFDYTEhQSEhMTExITExITNxMSEzcTNxI4EgAFRAABKksSAAxaAAEqShIADQU=
+
+ir_cmd_fishtank_storm:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABK5QTEhQSEhMTExMSEhMTExMSEzcTNxI3EzcTExM2FDYTNxI4EjcTExITEzcTEhQSEhMTExITEzcTNxMSEjgSNxQ2EwAFRAABKkoUAAxZAAErSRMADQU=
+
+ir_cmd_hdmi_switch_down:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABIpUROBMTEhQSExITExISFBIUERQSOBM3EjgTOBM3EjgTNxM4ExMROBMTEhMTExEVERQSExI4ExMROBM4EjgSOBI4FAAE/wABI0oRAA0FAAAAAAAAAAA=
+
+ir_cmd_hdmi_switch_five:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABI5UROREVEBUSEhMUEhMRFBEVERQSNxI5EzcTNxI4FDcSORETEhURFBEUETkTEhUREhMSOBI4EjgTOBIUEjcSORM3EgAFAAABIksRAAxlAAEjShEADQU=
+
+ir_cmd_hdmi_switch_four:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABIpYSNxMUERMUEhIUExISExIUERQTNxI4EjgTNxM4EzcSOBMSEzgSFRATEjkTEhITEhQSOBMTETkTNxMTETgTOBM3EwAE/gABI0oRAA0FAAAAAAAAAAA=
+
+ir_cmd_hdmi_switch_one:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABIpYTNhIVEhMRExMUERQSExITEhMTNxQ3EzcSOBM3EzgTNxI4EzcTFBE4EjgTFBEUERQSFBITETgTExIUETgTOBM3EwAFAAABIksRAAxoAAEiSxEADQU=
+
+ir_cmd_hdmi_switch_power_off:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABI5YROBMTEhQSExEUEhQRFBMTERQSOBE5EjgSOBI5EjgSOBM3EjgTOBI4ETkSExIVERMTExIUEhMRFBITEjgSOBI4EwAFFQABI0oSAAx7AAEkSREADQU=
+
+ir_cmd_hdmi_switch_power_on:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABI5YSNxQSEhMTEhIUEhQSExEUEhMSOBI4EzgSOBI4EjgTOBITEhMTOBI4EzcTExI4ExMROBM4EhMSExMTEjgTEhI4EwAFFgABIUsRAAyCAAEjShIADQU=
+
+ir_cmd_hdmi_switch_three:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABIpYROBIUEhQRFBEUEhMSFBEUEhQROBI5EjYUOBI5ETkSOBI3EhUSNxI4EhQRFREUERQSFBI3EhQRFBI4FDYTNxM3EwAFAQABIksSAA0FAAAAAAAAAAA=
+
+ir_cmd_hdmi_switch_two:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABI5UTOBEUExISFBITEhQSEhIUEhQSNxM3EzgTNxI4EjkTNxIUETkSOBI5ETkSFBITERUROBITFBITExEUEjgSOBI4EwAE/wABI0sQAA0FAAAAAAAAAAA=
+
+ir_cmd_hdmi_switch_up:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABIpYSOBMTERQSExITExMRFBIUERQSOBM4ETgSORI5EjcSOBMUERMSOBI5EhMSExIUEhQSOBI3EhQSExM4ETkSOBM4EQAFBAABIksRAAxoAAEjShEADQU=
+
+ir_cmd_home_theater_back:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBOAJOVEhISFBE4EjcSExI4ERQSExETEhQQORE4EhQQORMSEhMRFBI3EhQRExISEzcRFBI3EzcRFBI3EjgSOBEUETgSExEABgWTlBQ2EgANBQAAAAAAAAAAAAA=
+
+ir_cmd_home_theater_down:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJOVEhISExM3EjcSExI4ERQSExISExITNxI3ExISOBITEhMSEhM3ETkSEhMSEzcSExE4EjgRFBITETgSOBEUEjcTEhIABgSTlRI3EwAMV5OVEjcTAA0FAAA=
+
+ir_cmd_home_theater_enter:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJKVExITEhI4ETgSExM3EhMSEhITEhMRORE4ExISOBETExITEhI4EhMSNxITETkRExM3EjgSEhI4EhMRORETEjgSExEABgWTlBM3EgAMWJOUEzcSAA0FAAA=
+
+ir_cmd_home_theater_home:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJKVEhMSExI3EzcSExI3ExISExITERQTNhI4EhMSNxMSEhMSOBETEjgSExITETgTEhI4ERQSNxITEjgROBITETkSExIABgSSlRM3EgAMWJKVEjgRAA0FAAA=
+
+ir_cmd_home_theater_left:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJKVExITEhI4EjcTEhI4ERMTEhMSEhMROBM3ExISNxITExITEhEUEhMSNxMSEjgSEhM3EzcSNxM3ExIROBMSEzcSExIABgSSlRM3EQAMWZKVEzcSAA0FAAA=
+
+ir_cmd_home_theater_mute:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJOVEhISExI4EjcTExE4ERQSExITERMSOBE5EhISOBITERQROBI4ETgSOBE5EhMRFBETExMQFBIUEBQRExI4ETkROBIABgWSlRE5EgAMWJKVEjgSAA0FAAA=
+
+ir_cmd_home_theater_optical:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBeAJKVEhMSExE4EjgSExE4EhQRExEUERQROBI4EhMSNxMSEhMSExE4EjgRFBE4EjgSExE4EjgRFREUEDkRFBETETkSExIABgSSlRI4EgAMWJOUEjgSAAxYkpUSOBIADQUAAAAAAAAAAAAA
+
+ir_cmd_home_theater_pause:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJGXDBkRExA5ETsPFBA6EBUQFRAVEBQQOhA6EBQROREUDRkPOBM4EDkROg8VEBUROBEUEBYNGBAUEBQRORA6ERQQORAABgaTlhA5EAAMWpKVEDsPAA0FAAA=
+
+ir_cmd_home_theater_play:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBOAJKVEhQRFBA5EjgRFBA5ERQRFBEUEBUQORE4EhQQOREUEhMRFBAVEDgSFBAWDxQRFBITETgSORAUETkROBI4EjcROREABgaRlRI5EAANBQAAAAAAAAAAAAA=
+
+ir_cmd_home_theater_power:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBeAJOVExEUERQ2EzYUERQ2ExITEhMRFBETNxE4EhMUNhITExIRExQ2EjgTNhI4EhMTEhMREjgTEhMSExIRExQ2EjgROBIABgWSlRM3EwAMV5KVFDYTAAxXkpUUNhIADQUAAAAAAAAAAAAA
+
+ir_cmd_home_theater_right:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJKVExISExI3EjgSExI3EhMSExMSEhMROBI4EhMROBMSExITNxEUEhITNxITETgTEhI4EhMSNxM3EhMROBITEjgSExIABgSSlRI4EgAMWJKVEjgRAA0FAAA=
+
+ir_cmd_home_theater_scan_backward:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBOAJGWERQSExE4ETkRFBE4ERURExITERQROBI3EhQROBITERQSOBE4ERQRFBE5ERQQOREVEBQQFRE4ETgRFRA5ERQROBMABgOTlhE3EgANBQAAAAAAAAAAAAA=
+
+ir_cmd_home_theater_scan_forward:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJOVERQRFBE4ETkRFBE4ERURExEUERMSOBE4ExMROBEUEhMSEhI5ERQRExE4EhQQORITETkRFBA4EzcRFRA5ERQROBIABgWSlhA4EgAMWJOVETkRAA0FAAA=
+
+ir_cmd_home_theater_skip_backward:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJSUEhMSExE4EjgRFBE5ERQQFRAUERQROBE5ERQSNxIUERMRFBE4EToQFBITERMSFBAVETcTExEUEDkROBI4ETkROBEABgaSlRE5EQAMWZOUEjgSAA0FAAA=
+
+ir_cmd_home_theater_skip_forward:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBOAJOVEBQRFBE5EDoQFBE4ExMRFBEUERMROBI5EBQSNxITERUQORE5ETkRExAVERQRFBAUEhQQFBEUETgSOBI4ETkRNxMABgSTlRA6EQANBQAAAAAAAAAAAAA=
+
+ir_cmd_home_theater_stop:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJOVERQRExM3ETgSFBE5EBURExEUEhISOBE5ERQROBEVEBQSOBEUETgSExITERQQFRAVEBQROBIUETgSNxI4EjgROREABgSTlRE4EgAMWJSVETgSAA0FAAA=
+
+ir_cmd_home_theater_up:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBWAJKVExMRExI4ETgSExE5EhITEhMSExIRORI3FBERORISEhMTNxE4EjgSExITETgTEhI4EhMSEhITEzcSNxITEzcRFBIABgSTlBM3EgAMWJKVEjgRAA0FAAA=
+
+ir_cmd_home_theater_volume_down:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBeAJOVERQSExE4ETgSExM3ERQRFBEUERQROBE4ExMROBEVEBQRFBE4ETkRFBI3ERUQFREUEDgSFBAVEDkRFBE4EjgROBIABgWUkxI4EQAMWZOUEjgSAAxYkpUSOBEADQUAAAAAAAAAAAAA
+
+ir_cmd_home_theater_volume_up:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBeAJOVEhMSExE4EjgRFBI3EhMRFBEUERQROBM3ERQROBITEhMROBM3EjgSExE4EhMTEhITERQRExMTETgSExE4EjgROBMABgSSlRM3EQAMWZOUEzcSAAxYk5UROBMADQUAAAAAAAAAAAAA
+
+ir_cmd_ir_cmd_txt:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:3s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7att7O2rbeztq23s7atg==
+
+ir_cmd_tv_back:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBUAAoAAoUAASmVERQRFBE5ERQRFBEUEhMSExI4EjgSExI4EjkRORE5ETkRFBEUEhMSOBITEjgSExITEjkRORE5ERQRORITEjgSOBIABTAAAShMEQANBQAAAAA=
+
+ir_cmd_tv_channel_down:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKpQSExITEjkRFBEUERQRFBEUEjgSOBITEjgSOBI4EjkRORE5ERQRFBEUEhMSExITEhMSExI4EjgSORE5ETkRORI4EgAFMAABKUsRAAxtAAEqShIADQU=
+
+ir_cmd_tv_channel_up:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBgAAABKZURFBEUEjgSExITEhMSExITEjgSOREUETkRORE5EjgSOBITEhMSExITEhMSExIUERQRORE5ETkRORI4EjgSOBI4EgAFMAABKkoSAAxsAAEqShIADGwAASpKEQANBQAAAAAAAAAA
+
+ir_cmd_tv_down:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKZQSFBEUETkRFBEUERQRFBITEjgSOBITEjgSOBI5ETkRORE5ERQRFBITEhMSExI4EhMSExI4EjkRORE5ETkRFBE5EgAFMAABKUoSAAxsAAEqShIADQU=
+
+ir_cmd_tv_home:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKpQSFBEUETkRFBEUERQRFBEUETkSOBITEjgSOBI5ETkROREUERQRORI4EjgSORE4EhMSOBI5ERQRFBEUERQRFBE5EgAFMAABKUsRAAxuAAEpShIADQU=
+
+ir_cmd_tv_input:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKZUSExITEjgSExITEhMSExIUETkROREUETkRORI4EjgSOBI4EjkRFBE5ERQRFBITERQRFBEUEjgSExI4EjgSOBI5EQAFMAABKUsSAAxsAAEqShIADQU=
+
+ir_cmd_tv_left:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKJYRFBEUETkRFBEUERQRFBITEjgSOBITEjgSORE5ETkRORE5EjgSOBITEhMSExITEhMSExIUERQRORE5ETkRORI4EgAFMAABKUsRAAxtAAEpSxEADQU=
+
+ir_cmd_tv_mute:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKpQSExITEjgSExITEhMSExIUETkROREUETkRORI4EjgSOBI4EhMSExI5ERQRFBEUERQRFBE5EjgSExI4EjgSOBI5EQAFMAABKkoSAAxtAAEpSxEADQU=
+
+ir_cmd_tv_my_apps:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKZURFBEUETkSExITEhMSExITEjgSOBIUETkRORE5ETkSOBITEjgSExITEhMSExI5ERQROREUETkRORI4EjgSExI4EgAFMAABKUsRAAxtAAEpShIADQU=
+
+ir_cmd_tv_ok:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBQAAABKpQSExITEjgSExITEhMSExIUETkROREUETkRORI4EjgSOBITEhMSOREUERQRFBE5ERQRORI4EhMSOBI4EjgSFBE5EQAFMAABKUsSAA0FAAAAAAAAAAA=
+
+ir_cmd_tv_power:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKpQRFBEUETkRFBEUERQRFBITFDYSOBITEjgSORE5ETkROREUERQUERI4EhMSExITEhMSOBI5ETkRFBE5ETkRORI4EgAFMQABKkkSAAxtAAErSRIADQU=
+
+ir_cmd_tv_right:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKpQSExITEjgSFBEUERQRFBEUETkRORITEjgSOBI4EjgSOREUETkROREUERQRFBITEhMSOBITEhMSOBI5ETkRORE5EQAFMQABKUoSAAxtAAEpSxEADQU=
+
+ir_cmd_tv_up:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKZURFBEUETkRFBEUEhMSExITEjgSOBITEjkRORE5ETkRORITEhMSExITEhMSExI4EhMSOBI5ETkRORE5EjgSExI4EgAFMAABKUsRAAxtAAEpShIADQU=
+
+ir_cmd_tv_volume_down:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKZUSFBEUETkRFBEUERQRFBITEjgSOBITEjgSOBI5ETkRORE5EjgSExITEhMSExITEhMSExITEjkRORE5ETkRORI4EgAFMAABKUsRAAxtAAEqShEADQU=
+
+ir_cmd_tv_volume_up:
+  mode: queued
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.broadlink_rm_mini_3_remote
+        command:
+          - b64:JgBYAAABKpQSExITEjgSFBEUERQRFBEUETkRORITEjgSOBI4EjgSOBIUETkRFBEUERQRFBEUERQRORITEjgSOBI4EjgSORE5EQAFMAABKkoRAAxtAAEpSxEADQU=

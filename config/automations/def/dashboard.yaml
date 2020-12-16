@@ -1,0 +1,37 @@
+- id: turn_dashboards_off_during_night_and_away
+  alias: Turn Dashboards Off During Night And Away
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Night
+    - Away Night
+    - Away
+    - Away Morning
+    - Away Evening
+  mode: parallel
+  action:
+  - service: script.turn_dashboard_off_and_disarm
+    data:
+      dashboard_ip: !secret entrance_dashboard_ip
+  - service: script.turn_dashboard_off_and_disarm
+    data:
+      dashboard_ip: !secret bedroom_dashboard_ip
+
+- id: turn_dashboards_on_when_home
+  alias: Turn Dashboards On When Home
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Home
+    - Morning
+    - Evening
+  mode: parallel
+  action:
+  - service: script.turn_dashboard_on_and_arm
+    data:
+      dashboard_ip: !secret entrance_dashboard_ip
+  - service: script.turn_dashboard_on_and_arm
+    data:
+      dashboard_ip: !secret bedroom_dashboard_ip

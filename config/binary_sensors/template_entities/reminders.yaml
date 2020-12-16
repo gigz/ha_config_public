@@ -1,0 +1,7 @@
+show_current_calendar_event:
+  friendly_name: "Show Current Calendar Event"
+  value_template: >-
+    {{
+      states.calendar.home_assistant_reminders.state == 'on' and
+      states.input_boolean.current_calendar_event_dismissed.state == 'off'
+    }}

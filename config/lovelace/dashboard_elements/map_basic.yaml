@@ -1,0 +1,6 @@
+type: map
+entities:
+  - entity: person.volodymyr_giginiak
+  - entity: person.iryna_chukhrai
+  - entity: person.tamara_shepeleva
+hours_to_show: 0

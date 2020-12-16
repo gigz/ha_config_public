@@ -1,0 +1,42 @@
+title: COVID-19
+path: covid-19
+icon: 'mdi:virus-outline'
+theme: ''
+badges: []
+cards:
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.united_kingdom_coronavirus_confirmed
+    show:
+      labels: false
+    hours_to_show: 720
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.united_kingdom_coronavirus_deaths
+    show:
+      labels: false
+    hours_to_show: 720
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.ukraine_coronavirus_confirmed
+    show:
+      labels: false
+    hours_to_show: 720
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.ukraine_coronavirus_deaths
+    show:
+      labels: false
+    hours_to_show: 720
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.worldwide_coronavirus_confirmed
+    show:
+      labels: false
+    hours_to_show: 720
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.worldwide_coronavirus_deaths
+    show:
+      labels: false
+    hours_to_show: 720

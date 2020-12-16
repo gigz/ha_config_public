@@ -1,0 +1,55 @@
+turn_dashboard_off_and_disarm:
+  alias: Turn Dashboard Off And Disarm
+  icon: "mdi:tablet-dashboard"
+  description: "Turn dashboard screen off and disable motion and acoustic detectors"
+  fields:
+    dashboard_ip:
+      description: "The ip of the dashboard"
+      example: "10.0.0.2"
+  mode: parallel
+  sequence:
+    - service: rest_command.set_dashboard_boolean_setting
+      data:
+        dashboard_ip: "{{dashboard_ip}}"
+        password: !secret fully_kiosk_password
+        setting: "screenOnOnMotion"
+        value: "false"
+    # TODO: some issues with permissions to mic on Fire tablet, consider bringing back when fixed
+    # - service: rest_command.set_dashboard_boolean_setting
+    #   data:
+    #     dashboard_ip: "{{dashboard_ip}}"
+    #     password: !secret fully_kiosk_password
+    #     setting: "motionDetectionAcoustic"
+    #     value: "false"
+    - service: rest_command.turn_dashboard_off
+      data:
+        dashboard_ip: "{{dashboard_ip}}"
+        password: !secret fully_kiosk_password
+
+turn_dashboard_on_and_arm:
+  alias: Turn Dashboard On And Arm
+  icon: "mdi:tablet-dashboard"
+  description: "Turn dashboard screen on and enable motion and acoustic detectors"
+  fields:
+    dashboard_ip:
+      description: "The ip of the dashboard"
+      example: "10.0.0.2"
+  mode: parallel
+  sequence:
+    - service: rest_command.set_dashboard_boolean_setting
+      data:
+        dashboard_ip: "{{dashboard_ip}}"
+        password: !secret fully_kiosk_password
+        setting: "screenOnOnMotion"
+        value: "true"
+    # TODO: some issues with permissions to mic on Fire tablet, consider bringing back when fixed
+    # - service: rest_command.set_dashboard_boolean_setting
+    #   data:
+    #     dashboard_ip: "{{dashboard_ip}}"
+    #     password: !secret fully_kiosk_password
+    #     setting: "motionDetectionAcoustic"
+    #     value: "true"
+    - service: rest_command.turn_dashboard_on
+      data:
+        dashboard_ip: "{{dashboard_ip}}"
+        password: !secret fully_kiosk_password

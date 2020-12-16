@@ -1,0 +1,14 @@
+- id: notify_when_washing_machine_finished_washing
+  alias: Notify When Washing Machne Finished Washing
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.washing_machine_power_consumption
+    below: 5
+    for:
+      minutes: 5
+  condition:
+  action:
+  - service: notify.notify
+    data:
+      message: "Please move laundry to the dryer!"
+      title: "Washing Machine Finished"

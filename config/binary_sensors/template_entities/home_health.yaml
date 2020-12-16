@@ -1,0 +1,78 @@
+braava_jet_mop_needs_attention:
+  friendly_name: "Braava Jet Mop Needs Attention"
+  value_template: >-
+    {{
+      states.vacuum.braava_jet_mop.attributes.tank_level < 50 or
+      states.sensor.braava_jet_mop_detected_pad.state == 'invalid' or
+      states.vacuum.braava_jet_mop.state == 'error'
+    }}
+
+roomba_s9_vacuum_needs_attention:
+  friendly_name: "Roomba S9 Vacuum Needs Attention"
+  # value_template: >-
+    # {{
+    #   states.binary_sensor.roomba_s9_bin_full.state == 'on' or
+    #   states.vacuum.roomba_s9.state == 'error'
+    # }}
+    # TODO: remove when roomba is fixed
+  value_template: >-
+    {{ true == false }} 
+
+spa_needs_attention:
+  friendly_name: "Spa Needs Attention"
+  value_template: >-
+    {{
+      states.sensor.spa_thermometer_temperature_measurement.state | float < 36.0
+    }}
+
+smoke_detected:
+  friendly_name: "Smoke Detected"
+  value_template: >-
+    {{
+      states.sensor.kitchen_stove_protect_smoke_status.state != "Ok" or
+      states.sensor.lower_stairs_protect_smoke_status.state != "Ok" or
+      states.sensor.entrance_protect_smoke_status.state != "Ok" or
+      states.sensor.kitchen_main_protect_smoke_status.state != "Ok" or
+      states.sensor.upper_stairs_protect_smoke_status.state != "Ok"
+    }}
+
+co_detected:
+  friendly_name: "CO Detected"
+  value_template: >-
+    {{
+      states.sensor.kitchen_stove_protect_co_status.state != "Ok" or
+      states.sensor.lower_stairs_protect_co_status.state != "Ok" or
+      states.sensor.entrance_protect_co_status.state != "Ok" or
+      states.sensor.kitchen_main_protect_co_status.state != "Ok" or
+      states.sensor.upper_stairs_protect_co_status.state != "Ok"
+    }}
+
+water_leak_detected:
+  friendly_name: "Water Leak Detected"
+  value_template: >-
+    {{
+      states.binary_sensor.utility_water_leak_sensor_water.state != "off" or
+      states.binary_sensor.toilet_tap_water_leak_sensor_water.state != "off" or
+      states.binary_sensor.shower_water_leak_sensor_water.state != "off" or
+      states.binary_sensor.bathroom_floor_water_leak_sensor_water.state != "off" or
+      states.binary_sensor.bathroom_tap_water_leak_sensor_water.state != "off" or
+      states.binary_sensor.kitchen_water_leak_sensor_water.state != "off"
+    }}
+
+emergency_detected:
+  friendly_name: "Emergency Detected"
+  value_template: >-
+    {{
+      states.binary_sensor.smoke_detected.state == "on" or
+      states.binary_sensor.co_detected.state == "on" or
+      states.binary_sensor.water_leak_detected.state == "on" or
+      states.sensor.kitchen_gas_detector_smoke_detector.state != "clear"
+    }}
+
+updates_pending:
+  friendly_name: "Updates Pending"
+  value_template: >-
+    {{
+      states.sensor.hacs.state != '0' or
+      states.binary_sensor.updater.state == 'on'
+    }}

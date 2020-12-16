@@ -1,0 +1,93 @@
+# Turn off workday morning computer lights when it is not dark
+- id: turn_off_computer_lights
+  alias: turn_off_computer_lights
+  trigger:
+  # First turn off lights right away
+  # But race conditions with cycling colors can happen, so repeat in 2 mins
+  - platform: state
+    entity_id: input_boolean.someone_is_awake_in_the_morning
+    to: 'off'
+  - platform: state
+    entity_id: input_boolean.someone_is_awake_in_the_morning
+    to: 'off'
+    for:
+      minutes: 2
+  condition: []
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: group.computer_color_lights
+
+# Workday morning computer lights
+- id: cycle_through_coputer_light_colors_in_the_morning
+  alias: cycle_through_coputer_light_colors_in_the_morning
+  trigger:
+  - platform: time_pattern
+    minutes: "/1"
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.someone_is_awake_in_the_morning
+      state: 'on'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: state
+      entity_id: input_boolean.video_conference_lights
+      state: 'off'
+  action:
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_1
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 30
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_2
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 40
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_3
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 50
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_4
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 60
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_5
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 70
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_6
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 80
+
+- id: turn_on_kitche_and_study_lights_on_morning_wakeup
+  alias: Turn on kitchen and study lights if someone woke up in the morning
+  trigger:
+  - platform: state
+    entity_id: input_boolean.someone_is_awake_in_the_morning
+    to: 'on'
+  condition: []
+  action:
+  - service: light.turn_on
+    entity_id: light.kitchen_table_light
+  - service: light.turn_on
+    entity_id: light.kitchen_stove_light
+  

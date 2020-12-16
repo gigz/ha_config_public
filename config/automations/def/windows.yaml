@@ -1,0 +1,135 @@
+- id: open_bedroom_window_when_night_comes
+  alias: Open Bedroom Window When Night Comes
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to: Night
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.it_precipitates_now
+      state: 'off'
+    - condition: state
+      entity_id: cover.bedroom_right_window
+      state: closed
+  action:
+  - service: cover.open_cover
+    data:
+      entity_id: cover.bedroom_right_window
+
+- id: close_bedroom_window_when_at_night_after_10_min
+  alias: Close Bedroom Window At Night After 10 Min
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to: Night
+    for:
+      minutes: 10
+  condition:
+  - condition: state
+    entity_id: cover.bedroom_right_window
+    state: open
+  action:
+  - service: cover.close_cover
+    data:
+      entity_id: cover.bedroom_right_window
+
+- id: open_kitchen_window_when_too_much_co2
+  alias: Open Kitchen Window When Too Much CO2
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.netatmo_whatley_avenue_base_station_co2
+    above: 1000
+  - platform: time_pattern
+    minutes: "/30"
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.someone_is_at_home
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.it_precipitates_now
+      state: 'off'
+    - condition: state
+      entity_id: cover.kitchen_stove_window
+      state: closed
+    - condition: numeric_state
+      entity_id: sensor.netatmo_whatley_avenue_base_station_co2
+      above: 1000
+  action:
+  - service: cover.open_cover
+    data:
+      entity_id: cover.kitchen_stove_window
+
+- id: close_kitchen_window_after_10_min
+  alias: Close Kitchen Window After 10 Min
+  trigger:
+  - platform: state
+    entity_id: cover.kitchen_stove_window
+    to: open
+    for:
+      minutes: 10
+  action:
+  - service: cover.close_cover
+    data:
+      entity_id: cover.kitchen_stove_window
+
+- id: open_study_window_when_too_much_co2
+  alias: Open Study Window When Too Much CO2
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.netatmo_whatley_avenue_base_station_study_indoor_module_co2
+    above: 800
+  - platform: time_pattern
+    minutes: "/30"
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.someone_is_at_home
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.it_precipitates_now
+      state: 'off'
+    - condition: state
+      entity_id: cover.study_window
+      state: closed
+    - condition: numeric_state
+      entity_id: sensor.netatmo_whatley_avenue_base_station_study_indoor_module_co2
+      above: 800
+  action:
+  - service: cover.open_cover
+    data:
+      entity_id: cover.study_window
+
+- id: close_study_window_after_10_min
+  alias: Close Study Window After 10 Min
+  trigger:
+  - platform: state
+    entity_id: cover.study_window
+    to: open
+    for:
+      minutes: 10
+  action:
+  - service: cover.close_cover
+    data:
+      entity_id: cover.study_window
+
+- id: close_all_windows_when_rain_starts
+  alias: Close All Windows When Rain Starts
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.it_precipitates_now
+    to: 'on'
+  action:
+  - service: cover.close_cover
+    data:
+      entity_id: cover.bedroom_right_window
+  - service: cover.close_cover
+    data:
+      entity_id: cover.kitchen_stove_window
+  - service: cover.close_cover
+    data:
+      entity_id: cover.study_window

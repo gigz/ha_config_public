@@ -1,0 +1,81 @@
+- id: vacuum_when_everyone_leaves
+  alias: Vacuum When Everyone Leaves Home
+  trigger:
+    platform: state
+    entity_id: binary_sensor.someone_is_at_home
+    to: 'off'
+    for:
+      minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: vacuum.braava_jet_mop
+        state: docked
+      - condition: state
+        entity_id: vacuum.roomba_s9
+        state: docked
+  action:
+  - service: vacuum.start
+    data:
+      entity_id: vacuum.roomba_s9
+
+- id: mop_after_vacuum_when_everyone_is_away
+  alias: Mop After Vacuum When Everyone Is Away
+  trigger:
+    platform: state
+    entity_id: vacuum.roomba_s9
+    to: 'docked'
+    for:
+      minutes: 1
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.someone_is_at_home
+        state: 'off'
+      - condition: state
+        entity_id: vacuum.braava_jet_mop
+        state: docked
+  action:
+  - service: vacuum.start
+    data:
+      entity_id: vacuum.braava_jet_mop
+
+- id: return_vacuum_home_when_someone_arrives
+  alias: Return Vacuum Home When Someone Arrives
+  trigger:
+    platform: state
+    entity_id: binary_sensor.someone_is_at_home
+    to: 'on'
+    for:
+      minutes: 1
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: vacuum.roomba_s9
+        state: cleaning
+  action:
+  - service: vacuum.return_to_base
+    data:
+      entity_id: vacuum.roomba_s9
+
+- id: return_mop_home_when_someone_arrives
+  alias: Return Mop Home When Someone Arrives
+  trigger:
+    platform: state
+    entity_id: binary_sensor.someone_is_at_home
+    to: 'on'
+    for:
+      minutes: 1
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: vacuum.braava_jet_mop
+        state: cleaning
+  action:
+  - service: vacuum.return_to_base
+    data:
+      entity_id: vacuum.braava_jet_mop

@@ -1,0 +1,17 @@
+actions:
+  - name: Open The Door
+    background_color: "#6b72be"
+    label:
+      text: "Open The Door"
+      color: "#ffffff"
+    icon:
+      icon: lock_open
+      color: "#dfc742"
+  - name: Activate Night
+    background_color: "#0d2b35"
+    label:
+      text: "Activate Night"
+      color: "#ffffff"
+    icon:
+      icon: sleep
+      color: "#ffffff"

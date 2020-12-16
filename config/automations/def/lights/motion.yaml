@@ -1,0 +1,244 @@
+- id: entrance_motion_on
+  alias: Turn on entrance light when there is movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.entrance_motion_sensor_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sensor.home_mode
+    state:
+    - Evening
+    - Night
+    - Morning
+  action:
+  - service: light.turn_on
+    entity_id: light.entrance_light
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.entrance_light_turned_on_because_of_motion
+
+- id: entrance_motion_off
+  alias: Turn off entrance light 2 minutes after last movement
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.entrance_motion_sensor_motion
+    to: 'off'
+    for:
+      minutes: 2
+  condition:
+  - condition: state
+    entity_id: input_boolean.entrance_light_turned_on_because_of_motion
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.entrance_light
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.entrance_light_turned_on_because_of_motion
+
+- id: utility_motion_on
+  alias: Turn on utility light when there is movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.utility_room_motion_sensor_motion
+    to: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.utility_room_light
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.utility_light_turned_on_because_of_motion
+
+- id: utility_motion_off
+  alias: Turn off utility light 2 minutes after last movement
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.utility_room_motion_sensor_motion
+    to: 'off'
+    for:
+      minutes: 2
+  condition:
+  - condition: state
+    entity_id: input_boolean.utility_light_turned_on_because_of_motion
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.utility_room_light
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.utility_light_turned_on_because_of_motion
+
+- id: toilet_motion_on
+  alias: Turn on toilet light when there is movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.toilet_motion_sensor_motion
+    to: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.toilet_light
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.toilet_light_turned_on_because_of_motion
+
+- id: toilet_motion_off
+  alias: Turn off toilet light 5 minutes after last movement
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.toilet_motion_sensor_motion
+    to: 'off'
+    for:
+      minutes: 5
+  condition:
+  - condition: state
+    entity_id: input_boolean.toilet_light_turned_on_because_of_motion
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.toilet_light
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.toilet_light_turned_on_because_of_motion
+
+- id: shower_motion_on
+  alias: Turn on shower light when there is movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.shower_motion_sensor_motion
+    to: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.shower_light
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.shower_light_turned_on_because_of_motion
+
+- id: shower_motion_off
+  alias: Turn off shower light 5 minutes after last movement
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.shower_motion_sensor_motion
+    to: 'off'
+    for:
+      minutes: 5
+  condition:
+  - condition: state
+    entity_id: input_boolean.shower_light_turned_on_because_of_motion
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.shower_light
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.shower_light_turned_on_because_of_motion
+
+- id: bathroom_motion_on
+  alias: Turn on bathroom light when there is movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_motion_sensor_motion
+    to: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.bathroom_light
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.bathroom_light_turned_on_because_of_motion
+
+- id: bathroom_motion_off
+  alias: Turn off bathroom light 10 minutes after last movement
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.bathroom_motion_sensor_motion
+    to: 'off'
+    for:
+      minutes: 10
+  condition:
+  - condition: state
+    entity_id: input_boolean.bathroom_light_turned_on_because_of_motion
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.bathroom_light
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.bathroom_light_turned_on_because_of_motion
+
+- id: lower_stairs_motion_on
+  alias: Turn on lower stairs light when there is movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.lower_stairs_motion_sensor_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sensor.home_mode
+    state:
+    - Evening
+    - Night
+    - Morning
+  action:
+  - service: light.turn_on
+    entity_id: light.lower_stairs_light
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.lower_stairs_light_turned_on_because_of_motion
+
+- id: lower_stairs_motion_off
+  alias: Turn off lower stairs light 2 minutes after last movement
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.lower_stairs_motion_sensor_motion
+    to: 'off'
+    for:
+      minutes: 2
+  condition:
+  - condition: state
+    entity_id: input_boolean.lower_stairs_light_turned_on_because_of_motion
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.lower_stairs_light
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.lower_stairs_light_turned_on_because_of_motion
+
+- id: upper_stairs_motion_on
+  alias: Turn on upper stairs light when there is movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.upper_stairs_motion_sensor_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sensor.home_mode
+    state:
+    - Evening
+    - Night
+    - Morning
+  action:
+  - service: light.turn_on
+    entity_id: light.upper_stairs_light
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.upper_stairs_light_turned_on_because_of_motion
+
+- id: upper_stairs_motion_off
+  alias: Turn off upper stairs light 2 minutes after last movement
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.upper_stairs_motion_sensor_motion
+    to: 'off'
+    for:
+      minutes: 2
+  condition:
+  - condition: state
+    entity_id: input_boolean.upper_stairs_light_turned_on_because_of_motion
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.upper_stairs_light
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.upper_stairs_light_turned_on_because_of_motion

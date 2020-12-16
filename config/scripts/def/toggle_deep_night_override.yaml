@@ -1,0 +1,23 @@
+toggle_deep_night_override:
+  alias: Toggle Deep Night Override
+  icon: "mdi:sleep"
+  description: Toggle Deep Night Override
+  mode: single
+  sequence:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.someone_is_awake_in_the_morning
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.home_mode_override
+        option: >-
+          {% if states.input_select.home_mode_override.state == "Night" or
+                states.input_select.home_mode_override.state == "Away Night" %}
+            No Override
+          {% else %}
+            {% if states.binary_sensor.someone_is_at_home.state == "on" %}
+              Night
+            {% else %}
+              Away Night
+            {% endif %}
+          {% endif %}

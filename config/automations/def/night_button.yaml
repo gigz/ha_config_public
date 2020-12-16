@@ -1,0 +1,61 @@
+- id: night_button_pushed
+  alias: Night Button Pressed Once
+  trigger:
+    platform: event
+    event_type: smartthings.button
+    event_data:
+      device_id: 793afd50-ae18-4a1f-8216-a59e70b8a7ae
+      value: pushed
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: sensor.home_mode
+      state:
+      - Evening
+      - Away Evening
+      - Morning
+      - Away Morning
+      - Home
+      - Away
+    - condition: state
+      entity_id: input_select.home_mode_override
+      state:
+      - Night
+      - Away Night
+  action:
+    - service: script.toggle_deep_night_override
+
+- id: night_button_pushed_night
+  alias: Night Button Pressed Once During Night
+  trigger:
+    platform: event
+    event_type: smartthings.button
+    event_data:
+      device_id: 793afd50-ae18-4a1f-8216-a59e70b8a7ae
+      value: pushed
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: sensor.home_mode
+      state:
+      - Night
+      - Away Night
+    - condition: state
+      entity_id: input_select.home_mode_override
+      state: No Override
+  action:
+    # TODO: make this more maintainable (consider triggering night mode transition instead)
+    # there will be troubles if more automation is added to home state transitions elsewhere
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.someone_is_awake_in_the_morning
+    - service: light.turn_off
+      data:
+        entity_id:
+        - group.all_color_lights
+    - service: light.turn_off
+      data:
+        entity_id:
+        - group.all_lightwave_lights

@@ -1,0 +1,42 @@
+thermostats_21:
+  name: Thermostats Heating to 21 degrees
+  entities:
+    - climate.kitchen_table_thermostat
+
+thermostats_20:
+  name: Thermostats Heating to 20 degrees
+  entities:
+    - climate.heating
+    # - climate.kitchen_table_thermostat
+    # - climate.kitchen_main_thermostat
+    - climate.julia_thermostat
+    - climate.study_thermostat
+    - climate.living_room_thermostat
+    - climate.guest_room_thermostat
+
+thermostats_20_without_hive:
+  name: Thermostats Heating to 20 degrees without Hive
+  entities:
+    # - climate.kitchen_table_thermostat
+    # - climate.kitchen_main_thermostat
+    - climate.julia_thermostat
+    - climate.study_thermostat
+    - climate.living_room_thermostat
+    - climate.guest_room_thermostat
+
+thermostats_19:
+  name: Thermostats Heating to 19 degrees
+  entities:
+    - climate.kitchen_main_thermostat
+    - climate.entrance_thermostat
+    - climate.catherine_thermostat
+    - climate.bedroom_thermostat
+
+watched_thermostats:
+  name: Watched Thermostats
+  entities:
+    - climate.kitchen_table_thermostat
+    - climate.kitchen_main_thermostat
+    - climate.living_room_thermostat
+    - climate.study_thermostat
+    - climate.bedroom_thermostat

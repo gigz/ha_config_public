@@ -1,0 +1,23 @@
+home_mode_override:
+  name: Home Mode Override
+  options:
+    - No Override
+    - Home
+    - Away
+    - Evening
+    - Away Evening
+    - Night
+    - Away Night
+    - Morning
+    - Away Morning
+  initial: 'No Override'
+thermostat_mode_override:
+  name: Thermostat Mode Override
+  options:
+    - No Override
+    - Home
+    - Away
+    - Night
+    - Boost
+    - Cold
+  initial: 'No Override'

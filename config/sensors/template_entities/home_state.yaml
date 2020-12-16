@@ -1,0 +1,98 @@
+home_mode:
+  friendly_name: Home Mode
+  value_template: >-
+    {% if states.input_select.home_mode_override.state == "No Override" %}
+      {% if states.binary_sensor.someone_is_at_home.state == "on" %}
+        {% if states.binary_sensor.it_is_dark_outside.state == "on" %}
+          {% if states.input_boolean.someone_is_awake_in_the_morning.state == "on" or
+                (strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour >= 5 and
+                strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour < 12) %}
+            Morning
+          {% elif strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour < 12 %}
+            Night
+          {% else %}
+            Evening
+          {% endif %}
+        {% else %}
+          Home
+        {% endif %}
+      {% else %}
+        {% if states.binary_sensor.it_is_dark_outside.state == "on" %}
+          {% if states.input_boolean.someone_is_awake_in_the_morning.state == "on" or
+                (strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour >= 5 and
+                strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour < 12 ) %}
+            Away Morning
+          {% elif strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour < 12 %}
+            Away Night
+          {% else %}
+            Away Evening
+          {% endif %}
+        {% else %}
+          Away
+        {% endif %}
+      {% endif %}
+    {% else %}
+      {{ states.input_select.home_mode_override.state }}
+    {% endif %}
+  icon_template: >-
+    {% if states.input_select.home_mode_override.state == "No Override" %}
+      {% if states.binary_sensor.someone_is_at_home.state == "on" %}
+        {% if states.binary_sensor.it_is_dark_outside.state == "on" %}
+          {% if states.input_boolean.someone_is_awake_in_the_morning.state == "on" or
+                (strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour >= 5 and
+                strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour < 12 ) %}
+            mdi:weather-sunset-up
+          {% elif strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour < 12 %}
+            mdi:sleep
+          {% else %}
+            mdi:weather-night
+          {% endif %}
+        {% else %}
+          mdi:home-account
+        {% endif %}
+      {% else %}
+        {% if states.binary_sensor.it_is_dark_outside.state == "on" %}
+          {% if states.input_boolean.someone_is_awake_in_the_morning.state == "on" or
+                (strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour >= 5 and
+                strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour < 12 ) %}
+            mdi:weather-sunset-up
+          {% elif strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour < 12 %}
+            mdi:sleep
+          {% else %}
+            mdi:weather-night
+          {% endif %}
+        {% else %}
+          mdi:hiking
+        {% endif %}
+      {% endif %}
+    {% else %}
+      mdi:pencil
+    {% endif %}
+thermostat_mode:
+  friendly_name: Thermostat Mode
+  value_template: >-
+    {% if states.input_select.thermostat_mode_override.state == "No Override" %}
+      {% if (strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour > 4 and
+            strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour < 23) or
+            (strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour == 4 and
+            strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').minute >= 45) or
+            (strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').hour == 23 and
+            strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M').minute <= 30) or
+            states.sensor.home_mode.state == "Home" or
+            states.sensor.home_mode.state == "Morning" or
+            states.sensor.home_mode.state == "Away" or
+            states.sensor.home_mode.state == "Away Morning" %}
+        {% if states.sensor.home_mode.state == "Night" or
+              states.sensor.home_mode.state == "Deep Night" %}
+          Night
+        {% elif states.binary_sensor.someone_is_at_home.state == "on" %}
+          Home
+        {% else %}
+          Away
+        {% endif %}
+      {% else %}
+        Night
+      {% endif %}
+    {% else %}
+      {{ states.input_select.thermostat_mode_override.state }}
+    {% endif %}

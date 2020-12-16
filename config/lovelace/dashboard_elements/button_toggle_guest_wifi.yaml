@@ -1,0 +1,57 @@
+type: 'custom:button-card'
+entity: switch.guest_wifi
+styles:
+  card:
+    - height: 100%
+state:
+  - value: 'on'
+    name: Turn Off Guest Wifi
+    custom_fields:
+      txt1: 'SSID:'
+      txt2: !secret orbi_guest_ssid
+      txt3: 'Password:'
+      txt4: !secret orbi_guest_password
+    color: var(--paper-item-icon-active-color)
+    styles:
+      grid:
+        - grid-template-areas: '"i txt1" "i txt2" "i txt3" "i txt4" "n n"'
+        - grid-template-columns: auto auto
+        - grid-template-rows: auto auto auto auto auto
+      img_cell:
+        - align-self: center
+        - grid-row: 1 / 5
+      name:
+        - justify-self: center
+        - align-self: end
+        - font-size: 13px
+        - grid-column: 1 / 3
+      custom_fields:
+        txt1:
+          - text-align: start
+          - font-weight: bold
+          - font-size: 11px
+        txt2:
+          - text-align: start
+          - font-size: 11px
+        txt3:
+          - text-align: start
+          - font-weight: bold
+          - font-size: 11px
+        txt4:
+          - text-align: start
+          - font-size: 11px
+  - operator: default
+    name: Turn On Guest Wifi
+    color: var(--paper-item-icon-color)
+    styles:
+      grid:
+        - grid-template-areas: '"i" "n"'
+      name:
+        - font-size: 13px
+        - align-self: middle
+tap_action:
+  action: call-service
+  service: switch.toggle
+  service_data:
+    entity_id: switch.guest_wifi
+icon: 'mdi:wifi'

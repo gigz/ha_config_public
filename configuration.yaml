@@ -1,0 +1,172 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+recorder:
+  db_url: !secret mariadb_url
+
+tts:
+  - platform: google_translate
+
+group: !include_dir_merge_named config/groups/def/
+automation: !include_dir_merge_list config/automations/def/
+script: !include_dir_merge_named config/scripts/def/
+scene: !include_dir_merge_list config/scenes/def/
+rest_command: !include_dir_merge_named config/rest_commands/def/
+
+binary_sensor: !include_dir_merge_list config/binary_sensors/def/
+device_tracker: !include_dir_merge_list config/device_trackers/def/
+sensor: !include_dir_merge_list config/sensors/def/
+switch: !include_dir_merge_list config/switches/def/
+light: !include_dir_merge_list config/lights/def/
+input_select: !include_dir_merge_named config/input_selects/def/
+input_boolean: !include_dir_merge_named config/input_booleans/def/
+zone: !include_dir_merge_list config/zones/def/
+
+lightwave: !include config/lightwave/def/lightwave.yaml
+ios: !include config/ios/def/ios.yaml
+
+homeassistant:
+  customize: !include_dir_merge_named config/customizations/def/customizations.yaml
+  allowlist_external_dirs:
+    - /tmp
+
+frontend:
+  themes: !include_dir_merge_named config/themes
+
+ifttt:
+  key: !secret ifttt_api_key
+
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
+twilio:
+  account_sid: !secret twilio_account_sid
+  auth_token: !secret twilio_auth_token
+
+notify:
+  - name: twilio_call
+    platform: twilio_call
+    from_number: !secret twilio_number
+
+badnest:
+  issue_token: !secret badnest_issue_token
+  cookie: !secret badnest_cookie
+  region: eu
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+  track_new_calendar: false
+
+tplink:
+  discovery: false
+  switch:
+    - host: !secret tplink_host
+
+aarlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
+  user_agent: linux
+  refresh_devices_every: 2
+  stream_timeout: 120
+
+alarm_control_panel:
+  - platform: aarlo
+    away_mode_name: armed
+    home_mode_name: home
+    night_mode_name: night
+    trigger_time: 30
+    alarm_volume: 8
+
+camera:
+  - platform: aarlo
+
+media_player:
+  - platform: aarlo
+  - platform: soundtouch
+    host: !secret soundtouch_host
+    port: !secret soundtouch_port
+    name: Bedroom Speakers
+
+influxdb:
+  api_version: 2
+  host: "eu-central-1-1.aws.cloud2.influxdata.com"
+  token: !secret infludb_token
+  organization: !secret influxdb_organization
+  bucket: "Home Assistant"
+  tags:
+    source: HA
+  tags_attributes:
+    - friendly_name
+  default_measurement: units
+  exclude:
+    entities:
+      - sensor.date
+      - sensor.date_time
+      - sensor.date_time_iso
+      - sensor.date_time_utc
+      - sensor.time_date
+    domains:
+      - automation
+      - group
+      - sun
+      - zone
+
+lovelace:
+  mode: yaml
+  resources:
+    - url: /hacsfiles/lovelace-hass-aarlo/hass-aarlo.js
+      type: module
+    - url: /hacsfiles/clock/clock-card.js
+      type: module
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      type: module
+    - url: /hacsfiles/battery-state-card/battery-state-card.js
+      type: module
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/kiosk-mode/kiosk-mode.js
+      type: module
+    - url: /hacsfiles/lovelace-card-mod/card-mod.js
+      type: module
+    - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+      type: module
+    - url: /hacsfiles/vacuum-card/vacuum-card.js
+      type: module
+    - url: /hacsfiles/weather-card-chart/weather-card-chart.js
+      type: module
+    - url: /hacsfiles/weather-card/weather-card.js
+      type: module
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: module
+    - url: /hacsfiles/hass-shutter-card/hass-shutter-card.js
+      type: module
+  dashboards:
+    lovelace-main:
+      mode: yaml
+      title: Main
+      icon: mdi:monitor
+      show_in_sidebar: true
+      filename: config/lovelace/dashboards/main.yaml
+    main-mobile:
+      mode: yaml
+      title: Main (mobile)
+      icon: mdi:cellphone
+      show_in_sidebar: true
+      filename: config/lovelace/dashboards/main_mobile.yaml
+    lovelace-dashboards:
+      mode: yaml
+      title: Dashboards
+      icon: mdi:tablet
+      show_in_sidebar: true
+      filename: config/lovelace/dashboards/dashboards.yaml
+
+velux:
+  host: !secret velux_host
+  password: !secret velux_password
+
+logger:
+  default: warning
+  logs:
+    custom_components.velux: debug

@@ -1,0 +1,4 @@
+mail_amazon_packages_remaining:
+  friendly_name: Remaining Amazon Deliveries Today
+  icon_template: "mdi:package-variant-closed"
+  value_template: "{{ states.sensor.mail_amazon_packages.state | int - states.sensor.mail_amazon_packages_delivered.state | int }}"

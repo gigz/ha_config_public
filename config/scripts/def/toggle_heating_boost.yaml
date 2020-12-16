@@ -1,0 +1,15 @@
+toggle_heating_boost:
+  alias: Toggle Heating Boost
+  icon: "mdi:fire"
+  description: Toggle Heating Boost
+  mode: single
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.thermostat_mode_override
+        option: >-
+          {% if states.input_select.thermostat_mode_override.state == "Boost" %}
+            No Override
+          {% else %}
+            Boost
+          {% endif %}

@@ -1,0 +1,10 @@
+it_is_dark_outside:
+  friendly_name: "It Is Dark Outside"
+  value_template: >-
+    {{ states.sun.sun.attributes.elevation | float <= 3 }}
+someone_is_at_home:
+  friendly_name: "Someone Is At Home"
+  value_template: >-
+    {{ states.device_tracker.life360_volodymyr.state == 'home' or
+      states.device_tracker.life360_iryna.state == 'home' or
+      states.device_tracker.moto_g_4.state == 'home' }}

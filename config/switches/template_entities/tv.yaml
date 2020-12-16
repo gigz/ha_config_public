@@ -1,0 +1,8 @@
+tv:
+  friendly_name: TV
+  value_template: "{{ states.media_player.living_room_chromecast.state != 'unavailable' }}"
+  icon_template: 'mdi:television'
+  turn_on:
+    - service: script.toggle_tv
+  turn_off:
+    - service: script.turn_off_tv_and_lights

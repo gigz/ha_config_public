@@ -1,0 +1,47 @@
+- id: gigz_enters_a_car
+  alias: Gigz Enters A Car
+  trigger:
+    platform: zone
+    entity_id: device_tracker.gigzs_iphone_x
+    zone: zone.car
+    event: enter
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.gigz_in_a_car
+
+- id: gigz_leaves_a_car
+  alias: Gigz Leaves A Car
+  trigger:
+    platform: zone
+    entity_id: device_tracker.gigzs_iphone_x
+    zone: zone.car
+    event: leave
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.gigz_in_a_car
+
+- id: iryna_enters_a_car
+  alias: Iryna Enters A Car
+  trigger:
+    platform: zone
+    entity_id: device_tracker.iryna_s_iphone
+    zone: zone.car
+    event: enter
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.iryna_in_a_car
+
+- id: iryna_leaves_a_car
+  alias: Iryna Leaves A Car
+  trigger:
+    platform: zone
+    entity_id: device_tracker.iryna_s_iphone
+    zone: zone.car
+    event: leave
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.iryna_in_a_car

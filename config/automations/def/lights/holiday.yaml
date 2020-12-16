@@ -1,0 +1,139 @@
+- id: turn_off_holiday_lights_during_night
+  alias: Turn Off Holiday Lights During Night
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Night
+    - Away Night
+  condition:
+  - condition: state
+    entity_id: calendar.home_assistant_holidays
+    state: 'on'
+  action:
+  - service: scene.turn_on
+    data:
+      entity_id: "scene.{{states.calendar.home_assistant_holidays.attributes.location}}_off"
+
+- id: turn_off_holiday_lights_when_holiday_ends
+  alias: Turn Off Holiday Lights When Holiday Ends
+  trigger:
+  - platform: state
+    entity_id: calendar.home_assistant_holidays
+    to: 'off'
+  action:
+  - service: scene.turn_on
+    data:
+      entity_id: "scene.{{states.calendar.home_assistant_holidays.attributes.location}}_off"
+
+- id: turn_on_holiday_lights
+  alias: Turn On Holiday Lights
+  trigger:
+  - platform: time_pattern
+    minutes: "/5"
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: sensor.home_mode
+      state:
+      - Evening
+      - Away Evening
+    - condition: state
+      entity_id: calendar.home_assistant_holidays
+      state: 'on'
+    # TODO: This blocks all the holiday lights which is not great. Should somehow be separated.
+    - condition: state
+      entity_id: input_boolean.video_conference_lights
+      state: 'off'
+  action:
+  - service: scene.turn_on
+    data:
+      entity_id: "scene.{{states.calendar.home_assistant_holidays.attributes.location}}"
+
+# Swtich-based lights and twinkly
+- id: turn_off_switch_lights_during_night
+  alias: Turn Off Switch Lights During Night
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Night
+    - Away Night
+  action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.kasa_plug
+  - service: switch.turn_off
+    data:
+      entity_id: switch.catherine_night_light
+  - service: light.turn_off
+    data:
+      entity_id: light.christmas_tree
+
+- id: turn_on_switch_lights_during_evening
+  alias: Turn On Switch Lights During Evening
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Evening
+    - Away Evening
+  action:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.kasa_plug
+  - service: switch.turn_on
+    data:
+      entity_id: switch.catherine_night_light
+
+- id: turn_on_christmas_tree_during_evening_morning_day
+  alias: Turn On Christmas Tree During Evening, Morning, Day
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Evening
+    - Away Evening
+    - Morning
+    - Away Morning
+    - Home
+    - Away
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.christmas_tree
+
+- id: turn_off_laser_when_garder_door_open
+  alias: Turn Off Laser When Garden Door Open
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.garden_door_sensor_contact
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sensor.home_mode
+    state:
+    - Evening
+    - Away Evening
+  action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.catherine_night_light
+
+- id: turn_on_laser_when_garder_door_closed
+  alias: Turn On Laser When Garden Door Closed
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.garden_door_sensor_contact
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: sensor.home_mode
+    state:
+    - Evening
+    - Away Evening
+  action:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.catherine_night_light

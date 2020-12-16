@@ -1,0 +1,4 @@
+type: 'custom:weather-card-chart'
+mode: hourly
+weather: weather.openweathermap
+temp: sensor.netatmo_whatley_avenue_base_station_outdoor_module_temperature

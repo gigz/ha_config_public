@@ -1,0 +1,42 @@
+type: conditional
+card:
+  entity: input_boolean.current_calendar_event_dismissed
+  action: toggle
+  name: |
+    [[[
+      return (states['calendar.home_assistant_reminders'].attributes['message']);
+    ]]]
+  icon: |
+    [[[
+      const icon = states['calendar.home_assistant_reminders'].attributes['location'];
+      return icon != '' ? icon : 'hass:alert';
+    ]]]              
+  show_icon: true
+  show_name: true
+  show_state: false
+  layout: icon_name_state
+  styles:
+    grid:
+      - grid-template-areas: '"i n"'
+      - grid-template-columns: 80px auto
+      - grid-template-rows: 1fr
+    card:
+      - height: 80px
+      - padding: 0px
+      - background-color: '#F6D55C'
+    name:
+      - color: var(--dark-primary-color)
+      - font-weight: bold
+      - font-size: 20px
+      - align-self: middle
+      - justify-self: middle
+    img_cell:
+      - justify-content: middle
+      - align-items: middle
+      - margin: none
+      - padding: none
+  theme: notification_theme
+  type: 'custom:button-card'
+conditions:
+  - entity: binary_sensor.show_current_calendar_event
+    state: 'on'

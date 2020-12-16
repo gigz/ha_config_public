@@ -1,0 +1,10 @@
+zone.car:
+  beacon:
+    uuid: 74278BDA-B644-4520-8F0C-720EAF059935
+    major: 10065
+    minor: 26049
+# zone.home_study:
+#   beacon:
+#     uuid: FDA50693-A4E2-4FB1-AFCF-C6EB07647825
+#     major: 10543
+#     minor: 10054

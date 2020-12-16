@@ -1,0 +1,111 @@
+- id: arlo_camera_snapshot
+  alias: arlo_camera_snapshot
+  trigger:
+  - platform: time_pattern
+    minutes: "/30"
+  condition: []
+  action:
+  - service: aarlo.camera_request_snapshot
+    # TODO: switch to camera group but figure out how to make it work
+    entity_id:
+      - camera.aarlo_front_door_camera
+      - camera.aarlo_driveway_camera
+      - camera.aarlo_garden_camera
+      - camera.aarlo_kitchen_camera
+      - camera.aarlo_entrance_camera
+      - camera.aarlo_living_room_camera
+      - camera.aarlo_study_camera
+      - camera.aarlo_julia_camera
+      - camera.aarlo_cathrine_camera
+  mode: single
+
+- id: record_when_entrance_door_opens
+  alias: Record for 60 seconds when entrance door opens
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.entrance_door_sensor_contact
+    to: "on"
+  action:
+  - service: aarlo.camera_start_recording
+    data:
+      entity_id:
+        - camera.aarlo_front_door_camera
+        - camera.aarlo_entrance_camera
+      duration: 60
+  mode: single
+
+- id: record_when_garden_door_opens
+  alias: Record for 60 seconds when garden door opens
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.garden_door_sensor_contact
+    to: "on"
+  action:
+  - service: aarlo.camera_start_recording
+    data:
+      entity_id:
+        - camera.aarlo_garden_camera
+        - camera.aarlo_kitchen_camera
+      duration: 60
+  mode: single
+
+- id: arlo_disarm_when_home
+  alias: arlo_disarm_when_home
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Home
+    - Evening
+    - Morning
+  condition: []
+  action:
+  - service: aarlo.alarm_set_mode
+    data:
+      entity_id: alarm_control_panel.aarlo_arlo_hub
+      mode: disarmed
+  - service: aarlo.alarm_set_mode
+    data:
+      entity_id: alarm_control_panel.aarlo_base_station_2
+      mode: disarmed
+  mode: restart
+
+- id: arlo_arm_when_away
+  alias: arlo_arm_when_away
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Away
+    - Away Evening
+    - Away Night
+    - Away Morning
+  condition: []
+  action:
+  - service: aarlo.alarm_set_mode
+    data:
+      entity_id: alarm_control_panel.aarlo_arlo_hub
+      mode: away
+  - service: aarlo.alarm_set_mode
+    data:
+      entity_id: alarm_control_panel.aarlo_base_station_2
+      mode: away
+  mode: restart
+
+- id: arlo_arm_when_deep_night
+  alias: arlo_arm_when_deep_night
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to: Night
+  condition: []
+  action:
+  - service: aarlo.alarm_set_mode
+    data:
+      entity_id: alarm_control_panel.aarlo_arlo_hub
+      mode: armed
+  - service: aarlo.alarm_set_mode
+    data:
+      entity_id: alarm_control_panel.aarlo_base_station_2
+      mode: armed
+  mode: restart

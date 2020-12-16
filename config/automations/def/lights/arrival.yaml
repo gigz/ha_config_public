@@ -1,0 +1,52 @@
+- id: entrance_arrival_on
+  alias: Turn on entrance light when someone arrives
+  trigger:
+    - platform: state
+      entity_id: device_tracker.life360_volodymyr
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.life360_iryna
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.moto_g_4
+      to: 'home'
+  condition:
+  - condition: state
+    entity_id: sensor.home_mode
+    state:
+    - Evening
+    - Away Evening
+    - Night
+    - Away Night
+    - Morning
+    - Away Morning
+  action:
+  - service: light.turn_on
+    entity_id: light.entrance_light
+  # Turn off first to reset 15 mins countdown
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.entrance_light_turned_on_because_of_arrival
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.entrance_light_turned_on_because_of_arrival
+
+- id: entrance_arrival_off
+  alias: Turn off entrance light 15 minutes after arrival
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.entrance_light_turned_on_because_of_arrival
+    to: 'on'
+    for:
+      minutes: 15
+  condition:
+  # Ensure light is not on because of motion sensor
+  - condition: state
+    entity_id: input_boolean.entrance_light_turned_on_because_of_motion
+    state: 'off'
+  action:
+  - service: light.turn_off
+    entity_id: light.entrance_light
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.entrance_light_turned_on_because_of_arrival

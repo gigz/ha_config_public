@@ -1,0 +1,113 @@
+title: Temperature
+path: temperature
+icon: 'mdi:thermometer'
+theme: ''
+badges: []
+cards:
+  - type: thermostat
+    entity: climate.heating
+  - type: thermostat
+    entity: climate.kitchen_main_thermostat
+  - type: thermostat
+    entity: climate.kitchen_table_thermostat
+  - type: thermostat
+    entity: climate.living_room_thermostat
+  - type: thermostat
+    entity: climate.study_thermostat
+  - type: thermostat
+    entity: climate.entrance_thermostat
+  - type: thermostat
+    entity: climate.catherine_thermostat
+  - type: thermostat
+    entity: climate.julia_thermostat
+  - type: thermostat
+    entity: climate.guest_room_thermostat
+  - type: thermostat
+    entity: climate.bedroom_thermostat
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.foobot_happybot_temperature
+      - entity: sensor.netatmo_whatley_avenue_base_station_study_indoor_module_temperature
+      - entity: sensor.netatmo_whatley_avenue_base_station_temperature
+      - entity: sensor.netatmo_whatley_avenue_base_station_bedroom_indoor_module_temperature
+    show:
+      labels: false
+    name: Indoor Stations Temperatures
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.entrance_motion_sensor_temperature_measurement
+      - entity: sensor.lower_stairs_motion_sensor_temperature_measurement
+      - entity: sensor.bathroom_motion_sensor_temperature_measurement
+      - entity: sensor.toilet_motion_sensor_temperature_measurement
+      - entity: sensor.utility_room_motion_sensor_temperature_measurement
+      - entity: sensor.upper_stairs_motion_sensor_temperature_measurement
+      - entity: sensor.shower_motion_sensor_temperature_measurement
+    show:
+      labels: false
+    name: Indoor Motion Sensors Temperatures
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.toilet_tap_water_leak_sensor_temperature_measurement
+      - entity: sensor.utility_water_leak_sensor_temperature_measurement
+      - entity: sensor.shower_water_leak_sensor_temperature_measurement
+      - entity: sensor.bathroom_tap_water_leak_sensor_temperature_measurement
+      - entity: sensor.bathroom_floor_water_leak_sensor_temperature_measurement
+      - entity: sensor.kitchen_water_leak_sensor_temperature_measurement
+    show:
+      labels: false
+    name: Indoor Water Leak Sensors Temperatures
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.bedroom_temperature_sensor_temperature_measurement
+      - entity: sensor.catherine_temperature_sensor_temperature_measurement
+      - entity: sensor.entrance_temperature_sensor_temperature_measurement
+      - entity: sensor.guest_room_temperature_sensor_temperature_measurement
+      - entity: sensor.julia_temperature_sensor_temperature_measurement
+      - entity: sensor.kitchen_main_temperature_sensor_temperature_measurement
+      - entity: sensor.kitchen_table_temperature_sensor_temperature_measurement
+      - entity: sensor.study_temperature_sensor_temperature_measurement
+    show:
+      labels: false
+    name: Indoor Thermostat Temperature Sensors Temperatures
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.shower_hygrometer_temperature_measurement
+      - entity: sensor.garden_door_sensor_temperature_measurement
+      - entity: sensor.entrance_door_sensor_temperature_measurement
+    show:
+      labels: false
+    name: Indoor Hygrometers Temperatures
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.wimbledon_temperature
+      - entity: sensor.outside_temperature
+      - entity: sensor.netatmo_whatley_avenue_base_station_outdoor_module_temperature
+    show:
+      labels: false
+    name: Outdoor Temperatures And Weather
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.spa_thermometer_temperature_measurement
+    show:
+      labels: false
+    name: Spa Temperature
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.foobot_happybot_co2
+      - entity: sensor.netatmo_whatley_avenue_base_station_study_indoor_module_co2
+      - entity: sensor.netatmo_whatley_avenue_base_station_co2
+      - entity: sensor.netatmo_whatley_avenue_base_station_bedroom_indoor_module_co2
+    show:
+      labels: false
+    hours_to_show: 3
+    points_per_hour: 6
+    name: CO2
+  - type: 'custom:mini-graph-card'
+    entities:
+      - entity: sensor.foobot_happybot_humidity
+      - entity: sensor.netatmo_whatley_avenue_base_station_study_indoor_module_humidity
+      - entity: sensor.netatmo_whatley_avenue_base_station_humidity
+      - entity: sensor.netatmo_whatley_avenue_base_station_bedroom_indoor_module_humidity
+    show:
+      labels: false
+    name: Humidities

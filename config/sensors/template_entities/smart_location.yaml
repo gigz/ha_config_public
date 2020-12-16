@@ -1,0 +1,29 @@
+gigz_smart_location:
+  friendly_name: Gigz
+  value_template: >-
+    {% if states.device_tracker.gigzs_iphone_x.state == "Car" or 
+          states.device_tracker.gigzs_iphone_x.state == "Home Study" %}
+      {{ states.device_tracker.gigzs_iphone_x.state }}
+    {% else %}
+      {% if states.device_tracker.life360_volodymyr.state == "not_home"%}
+        Away
+      {% else %}
+        {{ states.device_tracker.life360_volodymyr.state | capitalize }}
+      {% endif %}
+    {% endif %}
+  entity_picture_template: >-
+    {{ states.device_tracker.life360_volodymyr.attributes.entity_picture }}
+iryna_smart_location:
+  friendly_name: Iryna
+  value_template: >-
+    {% if states.device_tracker.iryna_s_iphone.state == "Car"%}
+      {{ states.device_tracker.iryna_s_iphone.state }}
+    {% else %}
+      {% if states.device_tracker.life360_iryna.state == "not_home"%}
+        Away
+      {% else %}
+        {{ states.device_tracker.life360_iryna.state | capitalize}}
+      {% endif %}
+    {% endif %}
+  entity_picture_template: >-
+    {{ states.device_tracker.life360_iryna.attributes.entity_picture }}

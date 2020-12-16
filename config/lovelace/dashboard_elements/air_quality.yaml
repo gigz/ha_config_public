@@ -1,0 +1,7 @@
+type: glance
+entities:
+  - entity: sensor.netatmo_whatley_avenue_base_station_co2
+  - entity: sensor.netatmo_whatley_avenue_base_station_humidity
+  - entity: sensor.netatmo_whatley_avenue_base_station_noise
+show_name: false
+title: Air Quality

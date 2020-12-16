@@ -1,0 +1,5 @@
+type: 'custom:clockwork-card'
+entity: sensor.date_time_iso
+locale: en-GB
+other_time:
+  - Europe/Kiev

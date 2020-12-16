@@ -1,0 +1,125 @@
+title: System Health
+path: system-stats
+icon: 'mdi:heart-pulse'
+theme: ''
+badges: []
+cards:
+  - type: entities
+    title: Home Health
+    entities:
+      - entity: sensor.smart_home_health
+      - entity: binary_sensor.emergency_detected
+      - entity: binary_sensor.updates_pending
+      - entity: sensor.low_battery_devices_count
+      - entity: binary_sensor.spa_needs_attention
+      - entity: binary_sensor.braava_jet_mop_needs_attention
+      - entity: binary_sensor.roomba_s9_vacuum_needs_attention
+  - type: grid
+    columns: 3
+    square: true
+    cards:
+      - type: 'custom:mini-graph-card'
+        name: Download
+        entities:
+          - sensor.speedtest_download
+        line_color: blue
+        line_width: 8
+        font_size: 70
+      - type: 'custom:mini-graph-card'
+        name: Upload
+        entities:
+          - sensor.speedtest_upload
+        line_color: red
+        line_width: 8
+        font_size: 70
+      - type: 'custom:mini-graph-card'
+        name: Ping
+        entities:
+          - sensor.speedtest_ping
+        line_color: orange
+        line_width: 8
+        font_size: 70
+      - type: gauge
+        name: SSD Use
+        entity: sensor.disk_use_percent_media_usb0
+        min: 0
+        max: 100
+      - type: gauge
+        name: Processor Use
+        entity: sensor.processor_use
+        min: 0
+        max: 100
+      - type: gauge
+        name: Memory Use
+        entity: sensor.memory_use_percent
+        min: 0
+        max: 100
+      - type: gauge
+        name: SD Card Use
+        entity: sensor.disk_use_percent
+        min: 0
+        max: 100
+      - type: gauge
+        name: Load 15m
+        entity: sensor.load_15m
+        min: 0
+        max: 100
+      - type: gauge
+        name: Swap Use
+        entity: sensor.swap_use_percent
+        min: 0
+        max: 100
+  - type: entities
+    title: Home Assistant
+    entities:
+      - entity: sensor.ha_uptime
+      - entity: binary_sensor.updater
+      - entity: sensor.installed_version
+      - entity: sensor.latest_available_version
+      - entity: sensor.hacs
+  - type: entities
+    title: Raspberry Pi
+    entities:
+      - entity: sensor.rpi_uptime
+      - entity: sensor.last_boot
+        name: Last Boot
+      - entity: sensor.last_boot_date_time
+      - entity: sensor.cpu_temperature
+  - type: entities
+    entities:
+      - entity: binary_sensor.emergency_detected
+      - entity: binary_sensor.smoke_detected
+      - entity: binary_sensor.co_detected
+      - entity: binary_sensor.water_leak_detected
+      - entity: sensor.kitchen_gas_detector_smoke_detector
+    title: Emergency
+  - type: entities
+    entities:
+      - entity: binary_sensor.spa_needs_attention
+      - entity: sensor.spa_thermometer_temperature_measurement
+    title: Spa
+  - type: entities
+    entities:
+      - entity: binary_sensor.braava_jet_mop_needs_attention
+      - entity: sensor.braava_jet_mop_battery_level
+      - entity: sensor.braava_jet_mop_tank_level
+      - entity: sensor.braava_jet_mop_detected_pad
+      - entity: vacuum.braava_jet_mop
+    title: Braava Jet Mop
+  - type: entities
+    entities:
+      - entity: binary_sensor.roomba_s9_vacuum_needs_attention
+      - entity: binary_sensor.roomba_s9_bin_full
+      - entity: vacuum.roomba_s9
+    title: Roomba S9 Vacuum
+  - type: 'custom:battery-state-card'
+    title: Watched Batteries
+    tap_action:
+      action: more-info
+    sort_by_level: asc
+    color_gradient:
+      - '#ff0000'
+      - '#ffff00'
+      - '#00ff00'
+    entities:
+      - group.batteries_to_watch

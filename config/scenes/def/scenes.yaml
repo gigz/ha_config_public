@@ -1,0 +1,2166 @@
+- id: halloween_lights
+  name: Halloween Lights
+  entities:
+    light.computer_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 26.637
+      - 87.451
+      rgb_color:
+      - 255
+      - 131
+      - 31
+      xy_color:
+      - 0.601
+      - 0.373
+      effect: none
+      friendly_name: Computer Light 1
+      supported_features: 63
+      state: 'on'
+    light.computer_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 30.818
+      - 86.275
+      rgb_color:
+      - 255
+      - 147
+      - 34
+      xy_color:
+      - 0.58
+      - 0.39
+      effect: none
+      friendly_name: Computer Light 2
+      supported_features: 63
+      state: 'on'
+    light.computer_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 28.493
+      - 85.882
+      rgb_color:
+      - 255
+      - 139
+      - 36
+      xy_color:
+      - 0.589
+      - 0.381
+      effect: none
+      friendly_name: Computer Light 3
+      supported_features: 63
+      state: 'on'
+    light.computer_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 276.986
+      - 85.882
+      rgb_color:
+      - 170
+      - 36
+      - 255
+      xy_color:
+      - 0.271
+      - 0.109
+      effect: none
+      friendly_name: Computer Light 4
+      supported_features: 63
+      state: 'on'
+    light.computer_light_5:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 273.578
+      - 85.49
+      rgb_color:
+      - 159
+      - 37
+      - 255
+      xy_color:
+      - 0.256
+      - 0.103
+      effect: none
+      friendly_name: Computer Light 5
+      supported_features: 63
+      state: 'on'
+    light.computer_light_6:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 275.785
+      - 87.451
+      rgb_color:
+      - 165
+      - 31
+      - 255
+      xy_color:
+      - 0.265
+      - 0.105
+      effect: none
+      friendly_name: Computer Light 6
+      supported_features: 63
+      state: 'on'
+    light.living_room_lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 281.893
+      - 66.275
+      rgb_color:
+      - 203
+      - 85
+      - 255
+      xy_color:
+      - 0.311
+      - 0.151
+      effect: none
+      friendly_name: Living Room Lightstrip
+      supported_features: 63
+      state: 'on'
+    light.living_room_stand_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 284.156
+      - 90.588
+      rgb_color:
+      - 194
+      - 24
+      - 255
+      xy_color:
+      - 0.304
+      - 0.121
+      effect: none
+      friendly_name: Living Room Stand Lamp
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 24.891
+      - 89.804
+      rgb_color:
+      - 255
+      - 121
+      - 25
+      xy_color:
+      - 0.615
+      - 0.364
+      effect: none
+      friendly_name: Living Room TV Light 1
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 26.842
+      - 89.412
+      rgb_color:
+      - 255
+      - 128
+      - 26
+      xy_color:
+      - 0.606
+      - 0.371
+      effect: none
+      friendly_name: Living Room TV Light 2
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 25.677
+      - 89.804
+      rgb_color:
+      - 255
+      - 124
+      - 25
+      xy_color:
+      - 0.611
+      - 0.367
+      effect: none
+      friendly_name: Living Room TV Light 3
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 25.415
+      - 89.804
+      rgb_color:
+      - 255
+      - 123
+      - 25
+      xy_color:
+      - 0.613
+      - 0.366
+      effect: none
+      friendly_name: Living Room TV Light 4
+      supported_features: 63
+      state: 'on'
+    light.kitchen_lightstrip_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 274.438
+      - 66.275
+      rgb_color:
+      - 182
+      - 85
+      - 255
+      xy_color:
+      - 0.283
+      - 0.14
+      effect: none
+      friendly_name: Kitchen Lightstrip 1
+      supported_features: 63
+      state: 'on'
+    light.kitchen_lightstrip_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 17.951
+      - 95.686
+      rgb_color:
+      - 255
+      - 84
+      - 11
+      xy_color:
+      - 0.658
+      - 0.333
+      effect: none
+      friendly_name: Kitchen Lightstrip 2
+      supported_features: 63
+      state: 'on'
+    light.iriska:
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 280.702
+      - 67.059
+      rgb_color:
+      - 200
+      - 83
+      - 255
+      xy_color:
+      - 0.307
+      - 0.148
+      effect: none
+      friendly_name: Iriska
+      supported_features: 61
+      state: 'on'
+    light.bloomik:
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 18.571
+      - 98.824
+      rgb_color:
+      - 255
+      - 80
+      - 2
+      xy_color:
+      - 0.663
+      - 0.331
+      effect: none
+      friendly_name: Bloomik
+      supported_features: 61
+      state: 'on'
+    light.bedroom_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 19
+      hs_color:
+      - 20.5
+      - 94.118
+      rgb_color:
+      - 255
+      - 96
+      - 14
+      xy_color:
+      - 0.646
+      - 0.342
+      effect: none
+      friendly_name: Bedroom Lamp
+      supported_features: 63
+      state: 'on'
+    light.bedroom_lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 22
+      hs_color:
+      - 299.431
+      - 82.745
+      rgb_color:
+      - 252
+      - 44
+      - 255
+      xy_color:
+      - 0.38
+      - 0.159
+      effect: none
+      friendly_name: Bedroom Lightstrip
+      supported_features: 63
+      state: 'on'
+    light.garden_lamp_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 294.028
+      - 82.745
+      rgb_color:
+      - 233
+      - 44
+      - 255
+      xy_color:
+      - 0.355
+      - 0.149
+      effect: none
+      friendly_name: Garden Lamp 1
+      supported_features: 63
+      state: 'on'
+    light.garden_lamp_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 291
+      - 86.275
+      rgb_color:
+      - 221
+      - 34
+      - 255
+      xy_color:
+      - 0.34
+      - 0.139
+      effect: none
+      friendly_name: Garden Lamp 2
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 21.102
+      - 92.549
+      rgb_color:
+      - 255
+      - 102
+      - 19
+      xy_color:
+      - 0.638
+      - 0.347
+      effect: none
+      friendly_name: Garden Tree Light 1
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 270.888
+      - 66.275
+      rgb_color:
+      - 173
+      - 85
+      - 255
+      xy_color:
+      - 0.271
+      - 0.136
+      effect: none
+      friendly_name: Garden Tree Light 2
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 24.105
+      - 89.804
+      rgb_color:
+      - 255
+      - 118
+      - 25
+      xy_color:
+      - 0.618
+      - 0.361
+      effect: none
+      friendly_name: Garden Tree Light 3
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 26.842
+      - 89.412
+      rgb_color:
+      - 255
+      - 128
+      - 26
+      xy_color:
+      - 0.606
+      - 0.371
+      effect: none
+      friendly_name: Garden Tree Light 4
+      supported_features: 63
+      state: 'on'
+    light.garden_spotlight_1:
+      brightness: 102
+      hs_color:
+      - 30
+      - 100
+      rgb_color:
+      - 255
+      - 127
+      - 0
+      xy_color:
+      - 0.612
+      - 0.374
+      friendly_name: Garden Spotlight 1
+      supported_features: 49
+      state: 'on'
+    light.garden_spotlight_2:
+      brightness: 102
+      hs_color:
+      - 30
+      - 100
+      rgb_color:
+      - 255
+      - 127
+      - 0
+      xy_color:
+      - 0.612
+      - 0.374
+      friendly_name: Garden Spotlight 2
+      supported_features: 49
+      state: 'on'
+    switch.kasa_plug:
+      friendly_name: Kasa Plug
+      state: 'on'
+  icon: mdi:halloween
+- id: halloween_lights_off
+  name: Halloween Lights Off
+  entities:
+    switch.kasa_plug:
+      friendly_name: Kasa Plug
+      state: 'off'
+- id: christmas_lights
+  name: Christmas Lights
+  entities:
+    light.bedroom_lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 13
+      hs_color:
+      - 129.148
+      - 87.451
+      rgb_color:
+      - 31
+      - 255
+      - 66
+      xy_color:
+      - 0.177
+      - 0.694
+      effect: none
+      friendly_name: Bedroom Lightstrip
+      supported_features: 63
+      state: 'on'
+    light.bedroom_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 13
+      hs_color:
+      - 10.118
+      - 100
+      rgb_color:
+      - 255
+      - 43
+      - 0
+      xy_color:
+      - 0.689
+      - 0.309
+      effect: none
+      friendly_name: Bedroom Lamp
+      supported_features: 63
+      state: 'on'
+    light.kitchen_lightstrip_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 129.148
+      - 87.451
+      rgb_color:
+      - 31
+      - 255
+      - 66
+      xy_color:
+      - 0.177
+      - 0.694
+      effect: none
+      friendly_name: Kitchen Lightstrip 1
+      supported_features: 63
+      state: 'on'
+    light.kitchen_lightstrip_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 10.118
+      - 100
+      rgb_color:
+      - 255
+      - 43
+      - 0
+      xy_color:
+      - 0.689
+      - 0.309
+      effect: none
+      friendly_name: Kitchen Lightstrip 2
+      supported_features: 63
+      state: 'on'
+    light.bloomik:
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 359.762
+      - 98.824
+      rgb_color:
+      - 255
+      - 2
+      - 3
+      xy_color:
+      - 0.7
+      - 0.299
+      effect: none
+      friendly_name: Bloomik
+      supported_features: 61
+      state: 'on'
+    light.iriska:
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 100.706
+      - 100
+      rgb_color:
+      - 81
+      - 255
+      - 0
+      xy_color:
+      - 0.215
+      - 0.711
+      effect: none
+      friendly_name: Iriska
+      supported_features: 61
+      state: 'on'
+    light.living_room_tv_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 229
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Living Room TV Light 1
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 224
+      hs_color:
+      - 10.118
+      - 100
+      rgb_color:
+      - 255
+      - 43
+      - 0
+      xy_color:
+      - 0.689
+      - 0.309
+      effect: none
+      friendly_name: Living Room TV Light 2
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 227
+      hs_color:
+      - 10.118
+      - 100
+      rgb_color:
+      - 255
+      - 43
+      - 0
+      xy_color:
+      - 0.689
+      - 0.309
+      effect: none
+      friendly_name: Living Room TV Light 3
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 227
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Living Room TV Light 4
+      supported_features: 63
+      state: 'on'
+    light.living_room_stand_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 228
+      hs_color:
+      - 16.471
+      - 100
+      rgb_color:
+      - 255
+      - 70
+      - 0
+      xy_color:
+      - 0.672
+      - 0.324
+      effect: none
+      friendly_name: Living Room Stand Lamp
+      supported_features: 63
+      state: 'on'
+    light.living_room_lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 219
+      hs_color:
+      - 200
+      - 3.529
+      rgb_color:
+      - 246
+      - 252
+      - 255
+      xy_color:
+      - 0.314
+      - 0.326
+      effect: none
+      friendly_name: Living Room Lightstrip
+      supported_features: 63
+      state: 'on'
+    light.computer_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 0
+      - 0.392
+      rgb_color:
+      - 255
+      - 254
+      - 254
+      xy_color:
+      - 0.324
+      - 0.329
+      effect: none
+      friendly_name: Computer Light 1
+      supported_features: 63
+      state: 'on'
+    light.computer_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 10.118
+      - 100
+      rgb_color:
+      - 255
+      - 43
+      - 0
+      xy_color:
+      - 0.689
+      - 0.309
+      effect: none
+      friendly_name: Computer Light 2
+      supported_features: 63
+      state: 'on'
+    light.computer_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 10.118
+      - 100
+      rgb_color:
+      - 255
+      - 43
+      - 0
+      xy_color:
+      - 0.689
+      - 0.309
+      effect: none
+      friendly_name: Computer Light 3
+      supported_features: 63
+      state: 'on'
+    light.computer_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 129.148
+      - 87.451
+      rgb_color:
+      - 31
+      - 255
+      - 66
+      xy_color:
+      - 0.177
+      - 0.694
+      effect: none
+      friendly_name: Computer Light 4
+      supported_features: 63
+      state: 'on'
+    light.computer_light_5:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 129.148
+      - 87.451
+      rgb_color:
+      - 31
+      - 255
+      - 66
+      xy_color:
+      - 0.177
+      - 0.694
+      effect: none
+      friendly_name: Computer Light 5
+      supported_features: 63
+      state: 'on'
+    light.computer_light_6:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 129.148
+      - 87.451
+      rgb_color:
+      - 31
+      - 255
+      - 66
+      xy_color:
+      - 0.177
+      - 0.694
+      effect: none
+      friendly_name: Computer Light 6
+      supported_features: 63
+      state: 'on'
+    light.garden_lamp_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 16.471
+      - 100
+      rgb_color:
+      - 255
+      - 70
+      - 0
+      xy_color:
+      - 0.672
+      - 0.324
+      effect: none
+      friendly_name: Garden Lamp 1
+      supported_features: 63
+      state: 'on'
+    light.garden_lamp_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 66.383
+      - 73.725
+      rgb_color:
+      - 235
+      - 255
+      - 67
+      xy_color:
+      - 0.409
+      - 0.518
+      effect: none
+      friendly_name: Garden Lamp 2
+      supported_features: 63
+      state: 'on'
+    light.garden_spotlight_1:
+      brightness: 102
+      hs_color:
+      - 360
+      - 100
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      xy_color:
+      - 0.701
+      - 0.299
+      friendly_name: Garden Spotlight 1
+      supported_features: 49
+      state: 'on'
+    light.garden_spotlight_2:
+      brightness: 102
+      hs_color:
+      - 120
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      xy_color:
+      - 0.172
+      - 0.747
+      friendly_name: Garden Spotlight 2
+      supported_features: 49
+      state: 'on'
+    light.garden_tree_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 15.354
+      - 99.608
+      rgb_color:
+      - 255
+      - 65
+      - 0
+      xy_color:
+      - 0.676
+      - 0.321
+      effect: none
+      friendly_name: Garden Tree Light 1
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 10.118
+      - 100
+      rgb_color:
+      - 255
+      - 43
+      - 0
+      xy_color:
+      - 0.689
+      - 0.309
+      effect: none
+      friendly_name: Garden Tree Light 2
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 0
+      - 0.392
+      rgb_color:
+      - 255
+      - 254
+      - 254
+      xy_color:
+      - 0.324
+      - 0.329
+      effect: none
+      friendly_name: Garden Tree Light 3
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Garden Tree Light 4
+      supported_features: 63
+      state: 'on'
+    switch.kasa_plug:
+      friendly_name: Kasa Plug
+      state: 'on'
+  icon: mdi:pine-tree
+- id: christmas_lights_off
+  name: Christmas Lights Off
+  entities:
+    switch.kasa_plug:
+      friendly_name: Kasa Plug
+      state: 'off'
+- id: julia_lights
+  name: Julia Lights
+  entities:
+    light.bedroom_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 13
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Bedroom Lamp
+      supported_features: 63
+      state: 'on'
+    light.bedroom_lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 13
+      hs_color:
+      - 105.165
+      - 71.373
+      rgb_color:
+      - 117
+      - 255
+      - 72
+      xy_color:
+      - 0.248
+      - 0.633
+      effect: none
+      friendly_name: Bedroom Lightstrip
+      supported_features: 63
+      state: 'on'
+    light.kitchen_lightstrip_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Kitchen Lightstrip 1
+      supported_features: 63
+      state: 'on'
+    light.kitchen_lightstrip_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 135.545
+      - 86.275
+      rgb_color:
+      - 34
+      - 255
+      - 91
+      xy_color:
+      - 0.176
+      - 0.655
+      effect: none
+      friendly_name: Kitchen Lightstrip 2
+      supported_features: 63
+      state: 'on'
+    light.iriska:
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 100.706
+      - 100
+      rgb_color:
+      - 81
+      - 255
+      - 0
+      xy_color:
+      - 0.215
+      - 0.711
+      effect: none
+      friendly_name: Iriska
+      supported_features: 61
+      state: 'on'
+    light.bloomik:
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 100.706
+      - 100
+      rgb_color:
+      - 81
+      - 255
+      - 0
+      xy_color:
+      - 0.215
+      - 0.711
+      effect: none
+      friendly_name: Bloomik
+      supported_features: 61
+      state: 'on'
+    light.living_room_tv_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Living Room TV Light 1
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 120
+      - 71.373
+      rgb_color:
+      - 72
+      - 255
+      - 72
+      xy_color:
+      - 0.201
+      - 0.667
+      effect: none
+      friendly_name: Living Room TV Light 2
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Living Room TV Light 3
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 150.273
+      - 86.275
+      rgb_color:
+      - 34
+      - 255
+      - 146
+      xy_color:
+      - 0.169
+      - 0.548
+      effect: none
+      friendly_name: Living Room TV Light 4
+      supported_features: 63
+      state: 'on'
+    light.living_room_lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Living Room Lightstrip
+      supported_features: 63
+      state: 'on'
+    light.living_room_stand_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 66.383
+      - 73.725
+      rgb_color:
+      - 235
+      - 255
+      - 67
+      xy_color:
+      - 0.409
+      - 0.518
+      effect: none
+      friendly_name: Living Room Stand Lamp
+      supported_features: 63
+      state: 'on'
+    light.computer_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 214
+      hs_color:
+      - 120
+      - 71.373
+      rgb_color:
+      - 72
+      - 255
+      - 72
+      xy_color:
+      - 0.201
+      - 0.667
+      effect: none
+      friendly_name: Computer Light 1
+      supported_features: 63
+      state: 'on'
+    light.computer_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 120
+      - 71.373
+      rgb_color:
+      - 72
+      - 255
+      - 72
+      xy_color:
+      - 0.201
+      - 0.667
+      effect: none
+      friendly_name: Computer Light 2
+      supported_features: 63
+      state: 'on'
+    light.computer_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Computer Light 3
+      supported_features: 63
+      state: 'on'
+    light.computer_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 135.545
+      - 86.275
+      rgb_color:
+      - 34
+      - 255
+      - 91
+      xy_color:
+      - 0.176
+      - 0.655
+      effect: none
+      friendly_name: Computer Light 4
+      supported_features: 63
+      state: 'on'
+    light.computer_light_5:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 135.165
+      - 71.373
+      rgb_color:
+      - 72
+      - 255
+      - 118
+      xy_color:
+      - 0.193
+      - 0.593
+      effect: none
+      friendly_name: Computer Light 5
+      supported_features: 63
+      state: 'on'
+    light.computer_light_6:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 147.319
+      - 92.157
+      rgb_color:
+      - 19
+      - 255
+      - 126
+      xy_color:
+      - 0.167
+      - 0.591
+      effect: none
+      friendly_name: Computer Light 6
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Garden Tree Light 1
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 147.319
+      - 92.157
+      rgb_color:
+      - 19
+      - 255
+      - 126
+      xy_color:
+      - 0.167
+      - 0.591
+      effect: none
+      friendly_name: Garden Tree Light 2
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 120
+      - 71.373
+      rgb_color:
+      - 72
+      - 255
+      - 72
+      xy_color:
+      - 0.201
+      - 0.667
+      effect: none
+      friendly_name: Garden Tree Light 3
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 135.529
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 65
+      xy_color:
+      - 0.17
+      - 0.7
+      effect: none
+      friendly_name: Garden Tree Light 4
+      supported_features: 63
+      state: 'on'
+    light.garden_lamp_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 66.383
+      - 73.725
+      rgb_color:
+      - 235
+      - 255
+      - 67
+      xy_color:
+      - 0.409
+      - 0.518
+      effect: none
+      friendly_name: Garden Lamp 1
+      supported_features: 63
+      state: 'on'
+    light.garden_lamp_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 69.714
+      - 41.176
+      rgb_color:
+      - 238
+      - 255
+      - 150
+      xy_color:
+      - 0.373
+      - 0.447
+      effect: none
+      friendly_name: Garden Lamp 2
+      supported_features: 63
+      state: 'on'
+    light.garden_spotlight_1:
+      brightness: 102
+      hs_color:
+      - 118.8
+      - 100
+      rgb_color:
+      - 5
+      - 255
+      - 0
+      xy_color:
+      - 0.173
+      - 0.746
+      friendly_name: Garden Spotlight 1
+      supported_features: 49
+      state: 'on'
+    light.garden_spotlight_2:
+      brightness: 102
+      hs_color:
+      - 150
+      - 85.714
+      rgb_color:
+      - 36
+      - 255
+      - 145
+      xy_color:
+      - 0.169
+      - 0.549
+      friendly_name: Garden Spotlight 2
+      supported_features: 49
+      state: 'on'
+  icon: mdi:lightbulb-on
+- id: julia_lights_off
+  name: Julia Lights Off
+  entities:
+    switch.kasa_plug:
+      friendly_name: Kasa Plug
+      state: 'off'
+- id: catherine_lights
+  name: Catherine Lights
+  entities:
+    light.bedroom_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 13
+      hs_color:
+      - 179.698
+      - 78.039
+      rgb_color:
+      - 56
+      - 255
+      - 253
+      xy_color:
+      - 0.161
+      - 0.345
+      effect: none
+      friendly_name: Bedroom Lamp
+      supported_features: 63
+      state: 'on'
+    light.bedroom_lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 13
+      hs_color:
+      - 179.698
+      - 78.039
+      rgb_color:
+      - 56
+      - 255
+      - 253
+      xy_color:
+      - 0.161
+      - 0.345
+      effect: none
+      friendly_name: Bedroom Lightstrip
+      supported_features: 63
+      state: 'on'
+    light.kitchen_lightstrip_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 179.698
+      - 78.039
+      rgb_color:
+      - 56
+      - 255
+      - 253
+      xy_color:
+      - 0.161
+      - 0.345
+      effect: none
+      friendly_name: Kitchen Lightstrip 1
+      supported_features: 63
+      state: 'on'
+    light.kitchen_lightstrip_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 255.059
+      - 100
+      rgb_color:
+      - 64
+      - 0
+      - 255
+      xy_color:
+      - 0.158
+      - 0.05
+      effect: none
+      friendly_name: Kitchen Lightstrip 2
+      supported_features: 63
+      state: 'on'
+    light.iriska:
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 221.463
+      - 96.471
+      rgb_color:
+      - 8
+      - 85
+      - 255
+      xy_color:
+      - 0.139
+      - 0.085
+      effect: none
+      friendly_name: Iriska
+      supported_features: 61
+      state: 'on'
+    light.bloomik:
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 224.372
+      - 84.314
+      rgb_color:
+      - 39
+      - 95
+      - 255
+      xy_color:
+      - 0.147
+      - 0.099
+      effect: none
+      friendly_name: Bloomik
+      supported_features: 61
+      state: 'on'
+    light.living_room_tv_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 241.523
+      - 77.255
+      rgb_color:
+      - 63
+      - 57
+      - 255
+      xy_color:
+      - 0.157
+      - 0.07
+      effect: none
+      friendly_name: Living Room TV Light 1
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 255.059
+      - 100
+      rgb_color:
+      - 64
+      - 0
+      - 255
+      xy_color:
+      - 0.158
+      - 0.05
+      effect: none
+      friendly_name: Living Room TV Light 2
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 199.592
+      - 76.863
+      rgb_color:
+      - 58
+      - 190
+      - 255
+      xy_color:
+      - 0.159
+      - 0.238
+      effect: none
+      friendly_name: Living Room TV Light 3
+      supported_features: 63
+      state: 'on'
+    light.living_room_tv_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 210.333
+      - 70.588
+      rgb_color:
+      - 75
+      - 164
+      - 255
+      xy_color:
+      - 0.167
+      - 0.198
+      effect: none
+      friendly_name: Living Room TV Light 4
+      supported_features: 63
+      state: 'on'
+    light.living_room_lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 179.698
+      - 78.039
+      rgb_color:
+      - 56
+      - 255
+      - 253
+      xy_color:
+      - 0.161
+      - 0.345
+      effect: none
+      friendly_name: Living Room Lightstrip
+      supported_features: 63
+      state: 'on'
+    light.living_room_stand_lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 259.529
+      - 100
+      rgb_color:
+      - 82
+      - 0
+      - 255
+      xy_color:
+      - 0.171
+      - 0.056
+      effect: none
+      friendly_name: Living Room Stand Lamp
+      supported_features: 63
+      state: 'on'
+    light.computer_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 214
+      hs_color:
+      - 219.897
+      - 76.078
+      rgb_color:
+      - 61
+      - 126
+      - 255
+      xy_color:
+      - 0.158
+      - 0.14
+      effect: none
+      friendly_name: Computer Light 1
+      supported_features: 63
+      state: 'on'
+    light.computer_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 249.067
+      - 88.235
+      rgb_color:
+      - 64
+      - 30
+      - 255
+      xy_color:
+      - 0.158
+      - 0.056
+      effect: none
+      friendly_name: Computer Light 2
+      supported_features: 63
+      state: 'on'
+    light.computer_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 219.897
+      - 76.078
+      rgb_color:
+      - 61
+      - 126
+      - 255
+      xy_color:
+      - 0.158
+      - 0.14
+      effect: none
+      friendly_name: Computer Light 3
+      supported_features: 63
+      state: 'on'
+    light.computer_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 179.698
+      - 78.039
+      rgb_color:
+      - 56
+      - 255
+      - 253
+      xy_color:
+      - 0.161
+      - 0.345
+      effect: none
+      friendly_name: Computer Light 4
+      supported_features: 63
+      state: 'on'
+    light.computer_light_5:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 230.363
+      - 75.686
+      rgb_color:
+      - 62
+      - 92
+      - 255
+      xy_color:
+      - 0.157
+      - 0.099
+      effect: none
+      friendly_name: Computer Light 5
+      supported_features: 63
+      state: 'on'
+    light.computer_light_6:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 217
+      hs_color:
+      - 255.059
+      - 100
+      rgb_color:
+      - 64
+      - 0
+      - 255
+      xy_color:
+      - 0.158
+      - 0.05
+      effect: none
+      friendly_name: Computer Light 6
+      supported_features: 63
+      state: 'on'
+    light.garden_lamp_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 259.765
+      - 100
+      rgb_color:
+      - 84
+      - 0
+      - 255
+      xy_color:
+      - 0.173
+      - 0.057
+      effect: none
+      friendly_name: Garden Lamp 1
+      supported_features: 63
+      state: 'on'
+    light.garden_lamp_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 255.22
+      - 80.392
+      rgb_color:
+      - 102
+      - 50
+      - 255
+      xy_color:
+      - 0.189
+      - 0.079
+      effect: none
+      friendly_name: Garden Lamp 2
+      supported_features: 63
+      state: 'on'
+    light.garden_spotlight_1:
+      brightness: 102
+      hs_color:
+      - 180
+      - 85.714
+      rgb_color:
+      - 36
+      - 255
+      - 255
+      xy_color:
+      - 0.156
+      - 0.342
+      friendly_name: Garden Spotlight 1
+      supported_features: 49
+      state: 'on'
+    light.garden_spotlight_2:
+      brightness: 102
+      hs_color:
+      - 195
+      - 71.429
+      rgb_color:
+      - 72
+      - 209
+      - 255
+      xy_color:
+      - 0.166
+      - 0.269
+      friendly_name: Garden Spotlight 2
+      supported_features: 49
+      state: 'on'
+    light.garden_tree_light_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 224.916
+      - 70.196
+      rgb_color:
+      - 76
+      - 121
+      - 255
+      xy_color:
+      - 0.167
+      - 0.137
+      effect: none
+      friendly_name: Garden Tree Light 1
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 255.059
+      - 100
+      rgb_color:
+      - 64
+      - 0
+      - 255
+      xy_color:
+      - 0.158
+      - 0.05
+      effect: none
+      friendly_name: Garden Tree Light 2
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 255.059
+      - 100
+      rgb_color:
+      - 64
+      - 0
+      - 255
+      xy_color:
+      - 0.158
+      - 0.05
+      effect: none
+      friendly_name: Garden Tree Light 3
+      supported_features: 63
+      state: 'on'
+    light.garden_tree_light_4:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 213.711
+      - 76.078
+      rgb_color:
+      - 61
+      - 146
+      - 255
+      xy_color:
+      - 0.159
+      - 0.169
+      effect: none
+      friendly_name: Garden Tree Light 4
+      supported_features: 63
+      state: 'on'
+  icon: mdi:lightbulb-on
+- id: catherine_lights_off
+  name: Catherine Lights Off
+  entities:
+    switch.kasa_plug:
+      friendly_name: Kasa Plug
+      state: 'off'

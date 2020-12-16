@@ -1,0 +1,20 @@
+entrance_light_turned_on_because_of_motion:
+  name: Entrance Light Turned On Because Of Motion
+utility_light_turned_on_because_of_motion:
+  name: Utility Light Turned On Because Of Motion
+toilet_light_turned_on_because_of_motion:
+  name: Toilet Light Turned On Because Of Motion
+lower_stairs_light_turned_on_because_of_motion:
+  name: Lower Stairs Light Turned On Because Of Motion
+bathroom_light_turned_on_because_of_motion:
+  name: Bathroom Light Turned On Because Of Motion
+upper_stairs_light_turned_on_because_of_motion:
+  name: Upper Stairs Light Turned On Because Of Motion
+shower_light_turned_on_because_of_motion:
+  name: Shower Light Turned On Because Of Motion
+
+entrance_light_turned_on_because_of_arrival:
+  name: Entrance Light Turned On Because Of Arrival
+
+video_conference_lights:
+  name: Video Conference Lights

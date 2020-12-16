@@ -1,0 +1,67 @@
+all_lightwave_lights:
+  name: All Lightwave Lights
+  entities:
+    - light.catherine_light
+    - light.julia_light
+    - light.entrance_light
+    - light.lower_stairs_light
+    - light.upper_stairs_light
+    - light.living_room_light
+    - light.bedroom_light
+    - light.kitchen_light
+    - light.bathroom_light
+    - light.toilet_light
+    - light.shower_light
+    - light.study_light
+
+all_color_lights:
+  name: All Color Lights
+  entities:
+    - light.bedroom_lamp
+    - light.bedroom_lightstrip
+    - light.living_room_stand_lamp
+    - light.living_room_lightstrip
+    - light.living_room_tv_light_1
+    - light.living_room_tv_light_2
+    - light.living_room_tv_light_3
+    - light.living_room_tv_light_4
+    - light.fish_tank_light
+    - light.computer_light_1
+    - light.computer_light_2
+    - light.computer_light_3
+    - light.computer_light_4
+    - light.computer_light_5
+    - light.computer_light_6
+    - light.kitchen_lightstrip_1
+    - light.kitchen_lightstrip_2
+    - light.lidl_lightstrip
+    - light.iriska
+    - light.bloomik
+    - light.garden_lamp_1
+    - light.garden_lamp_2
+    - light.garden_tree_light_1
+    - light.garden_tree_light_2
+    - light.garden_tree_light_3
+    - light.garden_tree_light_4
+    - light.garden_spotlight_1
+    - light.garden_spotlight_2
+
+computer_color_lights:
+  name: Computer Color Lights
+  entities:
+    - light.computer_light_1
+    - light.computer_light_2
+    - light.computer_light_3
+    - light.computer_light_4
+    - light.computer_light_5
+    - light.computer_light_6
+
+tv_color_lights:
+  name: TV Color Lights
+  entities:
+    - light.living_room_stand_lamp
+    - light.living_room_lightstrip
+    - light.living_room_tv_light_1
+    - light.living_room_tv_light_2
+    - light.living_room_tv_light_3
+    - light.living_room_tv_light_4

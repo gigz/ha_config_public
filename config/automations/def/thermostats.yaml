@@ -1,0 +1,113 @@
+- id: thermostat_home_mode
+  alias: thermostat_home_mode
+  trigger:
+  - platform: state
+    entity_id: sensor.thermostat_mode
+    to: Home
+  condition: []
+  action:
+  - service: climate.set_temperature
+    data:
+      entity_id: group.thermostats_21
+      temperature: 21.0
+  - service: climate.set_temperature
+    data:
+      entity_id: group.thermostats_20
+      temperature: 20.0
+  - service: climate.set_temperature
+    data:
+      entity_id: group.thermostats_19
+      temperature: 19.0
+  mode: restart
+
+- id: thermostat_away_mode
+  alias: thermostat_away_mode
+  trigger:
+  - platform: state
+    entity_id: sensor.thermostat_mode
+    to: Away
+  condition: []
+  action:
+  - service: climate.set_temperature
+    data:
+      entity_id:
+      - group.thermostats_21
+      - group.thermostats_20
+      - group.thermostats_19
+      temperature: 18.0
+  mode: restart
+
+- id: thermostat_night_mode
+  alias: thermostat_night_mode
+  trigger:
+  - platform: state
+    entity_id: sensor.thermostat_mode
+    to: Night
+  condition: []
+  action:
+  - service: climate.set_temperature
+    data:
+      entity_id:
+      - group.thermostats_21
+      - group.thermostats_20
+      - group.thermostats_19
+      temperature: 17.0
+  mode: restart
+
+- id: thermostat_cold_mode
+  alias: thermostat_cold_mode
+  trigger:
+  - platform: state
+    entity_id: sensor.thermostat_mode
+    to: Cold
+  condition: []
+  action:
+  - service: climate.set_temperature
+    data:
+      entity_id:
+      - group.thermostats_21
+      - group.thermostats_20
+      - group.thermostats_19
+      temperature: 5.0
+  mode: restart
+
+- id: thermostat_boost_mode
+  alias: thermostat_boost_mode
+  trigger:
+  - platform: state
+    entity_id: sensor.thermostat_mode
+    to: Boost
+  condition: []
+  action:
+  - service: hive.boost_heating
+    data:
+      entity_id: climate.heating
+      time_period: "00:30:00" # sync this with cleanup in thermostathermostat_mode_override_cleanupt_boost_mode
+      temperature: 24.0
+  - service: climate.set_temperature
+    data:
+      entity_id:
+      - group.thermostats_21
+      - group.thermostats_20_without_hive
+      - group.thermostats_19
+      temperature: 24.0
+  mode: restart
+
+- id: low_watched_thermostat_temperature_boost
+  alias: Boost Heating If Watched Thermostat Has Too Low Temperature
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.max_temperature_difference_for_watched_thermostat
+    above: 1
+  - platform: time_pattern
+    minutes: "/30"
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.max_temperature_difference_for_watched_thermostat
+      above: 1
+  action:
+  - service: hive.boost_heating
+    data:
+      entity_id: climate.heating
+      time_period: "00:30:00"
+      temperature: 24.0

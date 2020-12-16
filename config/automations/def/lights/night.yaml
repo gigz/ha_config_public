@@ -1,0 +1,67 @@
+# TODO: Ideally make garden spotlights more responsive rather than trying to workaround
+- id: turn_off_garden_spotlights_persistently
+  alias: Turn Off Garden Spotlights Persistently
+  trigger:
+  - platform: time_pattern
+    minutes: "/10"
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: sensor.home_mode
+      state:
+      - Night
+      - Away Night
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: light.garden_spotlight_1
+        state: 'on'
+      - condition: state
+        entity_id: light.garden_spotlight_2
+        state: 'on'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id:
+      - light.garden_spotlight_1
+      - light.garden_spotlight_2
+
+- id: turn_off_mood_lights
+  alias: turn_off_mood_lights
+  trigger:
+  # First turn off lights right away for prompt response to manual override
+  # But race conditions with cycling colors can happen, so repeat in 2 mins
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Night
+    - Away Night
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Night
+    - Away Night
+    for:
+      minutes: 2
+  condition: []
+  action:
+  - service: light.turn_off
+    data:
+      entity_id:
+      - group.all_color_lights
+
+- id: turn_off_lightwave_lights
+  alias: turn_off_lightwave_lights
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Night
+    - Away Night
+  condition: []
+  action:
+  - service: light.turn_off
+    data:
+      entity_id:
+      - group.all_lightwave_lights

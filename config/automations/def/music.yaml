@@ -1,0 +1,66 @@
+- id: switch_music_to_bedroom_speakers_nfc
+  alias: Switch Music To Bedroom Speakers Via NFC
+  trigger:
+    platform: tag
+    tag_id: !secret bedroom_speakers_nfc_tag_id
+  condition:
+    - condition: template
+      value_template: '{{ states.media_player.spotify_volodymyr_giginiak.attributes.source != "Bedroom Speakers (L+R)" }}'
+  action:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.spotify_volodymyr_giginiak
+      source: "Bedroom Speakers (L+R)"
+
+- id: play_pause_music_bedroom_speakers_nfc
+  alias: Play Or Pause Music On Bedroom Speakers Via NFC
+  trigger:
+    platform: tag
+    tag_id: !secret bedroom_speakers_nfc_tag_id
+  condition:
+    - condition: template
+      value_template: '{{ states.media_player.spotify_volodymyr_giginiak.attributes.source == "Bedroom Speakers (L+R)" }}'
+  action:
+  - service: media_player.media_play_pause
+    data:
+      entity_id: media_player.spotify_volodymyr_giginiak
+
+- id: switch_music_to_kitchen_speakers_nfc
+  alias: Switch Music To Kitchen Speakers Via NFC
+  trigger:
+    platform: tag
+    tag_id: !secret kitchen_speakers_nfc_tag_id
+  condition:
+    - condition: template
+      value_template: '{{ states.media_player.spotify_volodymyr_giginiak.attributes.source != "Kitchen" }}'
+  action:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.spotify_volodymyr_giginiak
+      source: "Kitchen"
+
+- id: play_pause_music_kitchen_speakers_nfc
+  alias: Play Or Pause Music On Kitchen Speakers Via NFC
+  trigger:
+    platform: tag
+    tag_id: !secret kitchen_speakers_nfc_tag_id
+  condition:
+    - condition: template
+      value_template: '{{ states.media_player.spotify_volodymyr_giginiak.attributes.source == "Kitchen" }}'
+  action:
+  - service: media_player.media_play_pause
+    data:
+      entity_id: media_player.spotify_volodymyr_giginiak
+
+- id: turn_off_music_when_night
+  alias: Turn Off Music When Night Starts
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to: Night
+  condition: []
+  action:
+  - service: media_player.media_pause
+    data:
+      entity_id:
+      - media_player.spotify_volodymyr_giginiak

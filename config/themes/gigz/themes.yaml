@@ -1,0 +1,6 @@
+notification_theme:
+  card-background-color: rgba(200, 200, 0, 0.5)
+  state-icon-color: "#FFF"
+  ha-card-background: var(--card-background-color)
+  paper-listbox-background-color: var(--card-background-color)
+  paper-card-background-color: var(--card-background-color)

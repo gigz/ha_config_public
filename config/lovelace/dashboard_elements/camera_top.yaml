@@ -1,0 +1,15 @@
+type: 'custom:aarlo-glance'
+image_click: play
+name: Front Top Door
+show:
+  - motion
+  - sound
+  - snapshot
+  - battery_level
+  - signal_strength
+  - captured_today
+  - image_date
+top_date: false
+top_status: false
+top_title: false
+entity: camera.aarlo_front_top_camera

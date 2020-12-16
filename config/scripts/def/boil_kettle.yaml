@@ -1,0 +1,5 @@
+boil_kettle:
+  alias: Boil Kettle
+  sequence:
+    - service: ifttt.trigger
+      data: {"event":"boil_kettle"}

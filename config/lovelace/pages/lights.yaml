@@ -1,0 +1,22 @@
+title: Lights
+path: lights
+icon: 'mdi:lightbulb'
+theme: ''
+badges: []
+cards:
+  - type: entities
+    entities:
+      - entity: light.catherine_light
+      - entity: light.julia_light
+      - entity: light.entrance_light
+      - entity: light.lower_stairs_light
+      - entity: light.upper_stairs_light
+      - entity: light.living_room_light
+      - entity: light.bedroom_light
+      - entity: light.kitchen_light
+      - entity: light.bathroom_light
+      - entity: light.toilet_light
+      - entity: light.shower_light
+      - entity: light.study_light
+      - entity: light.utility_room_light
+      - entity: light.fish_tank_light

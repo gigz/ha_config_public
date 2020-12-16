@@ -1,0 +1,4 @@
+washing_machine_power_consumption:
+  friendly_name: Washing Machine Power Consumption
+  unit_of_measurement: "w"
+  value_template: "{{ states.switch.washing_machine_outlet.attributes.current_power_w | float }}"

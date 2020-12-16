@@ -1,0 +1,9 @@
+- id: reboot_klf_on_hass_stop
+  alias: Reboot KLF On Hass Stop Event
+  trigger:
+    - platform: event
+      event_type: homeassistant_stop
+  condition: []
+  action:
+    - service: velux.reboot_gateway
+  mode: single

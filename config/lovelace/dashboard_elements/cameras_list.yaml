@@ -1,0 +1,152 @@
+type: vertical-stack
+cards:
+- entity: camera.aarlo_front_door_camera
+  image_click: play
+  name: Front Door
+  show:
+    - motion
+    - sound
+    - snapshot
+    - battery_level
+    - signal_strength
+    - captured_today
+    - image_date
+  top_date: false
+  top_status: false
+  top_title: false
+  type: 'custom:aarlo-glance'
+- entity: camera.aarlo_garden_camera
+  image_click: play
+  name: Garden
+  show:
+    - motion
+    - sound
+    - snapshot
+    - battery_level
+    - signal_strength
+    - captured_today
+    - image_date
+  top_date: false
+  top_status: false
+  top_title: false
+  type: 'custom:aarlo-glance'
+- entity: camera.aarlo_living_room_camera
+  image_click: play
+  name: Living Room
+  show:
+    - motion
+    - sound
+    - snapshot
+    - battery_level
+    - signal_strength
+    - captured_today
+    - image_date
+  top_date: false
+  top_status: false
+  top_title: false
+  type: 'custom:aarlo-glance'
+- entity: camera.aarlo_cathrine_camera
+  image_click: play
+  name: Catherine
+  show:
+    - motion
+    - sound
+    - snapshot
+    - battery_level
+    - signal_strength
+    - captured_today
+    - image_date
+  top_date: false
+  top_status: false
+  top_title: false
+  type: 'custom:aarlo-glance'
+- entity: camera.aarlo_front_top_camera
+  image_click: play
+  name: Front Top Door
+  show:
+    - motion
+    - sound
+    - snapshot
+    - battery_level
+    - signal_strength
+    - captured_today
+    - image_date
+  top_date: false
+  top_status: false
+  top_title: false
+  type: 'custom:aarlo-glance'
+- entity: camera.aarlo_kitchen_camera
+  image_click: play
+  name: Kitchen
+  show:
+    - motion
+    - sound
+    - snapshot
+    - battery_level
+    - signal_strength
+    - captured_today
+    - image_date
+  top_date: false
+  top_status: false
+  top_title: false
+  type: 'custom:aarlo-glance'
+- entity: camera.aarlo_study_camera
+  image_click: play
+  name: Study
+  show:
+    - motion
+    - sound
+    - snapshot
+    - battery_level
+    - signal_strength
+    - captured_today
+    - image_date
+  top_date: false
+  top_status: false
+  top_title: false
+  type: 'custom:aarlo-glance'
+- entity: camera.aarlo_driveway_camera
+  image_click: play
+  name: Driveway
+  show:
+    - motion
+    - sound
+    - snapshot
+    - battery_level
+    - signal_strength
+    - captured_today
+    - image_date
+  top_date: false
+  top_status: false
+  top_title: false
+  type: 'custom:aarlo-glance'
+- entity: camera.aarlo_entrance_camera
+  image_click: play
+  name: Entrance
+  show:
+    - motion
+    - sound
+    - snapshot
+    - battery_level
+    - signal_strength
+    - captured_today
+    - image_date
+  top_date: false
+  top_status: false
+  top_title: false
+  type: 'custom:aarlo-glance'
+- entity: camera.aarlo_julia_camera
+  image_click: play
+  name: Julia
+  show:
+    - motion
+    - sound
+    - snapshot
+    - battery_level
+    - signal_strength
+    - captured_today
+    - image_date
+  top_date: false
+  top_status: false
+  top_title: false
+  type: 'custom:aarlo-glance'

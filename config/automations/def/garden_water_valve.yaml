@@ -1,0 +1,24 @@
+- id: garden_water_valve_off_after_30_min
+  alias: Turn off garden water valve after 30 minutes
+  trigger:
+  - platform: state
+    entity_id: switch.garden_water_valve
+    to: 'on'
+    for:
+      minutes: 30
+  action:
+  - service: switch.turn_off
+    entity_id: switch.garden_water_valve
+  - service: notify.notify
+    data:
+      message: "Garden water valve was turned off after 30 minutes"
+
+# Toggle garden water valve via NFC
+- id: garden_water_valve_toggle_nfc
+  alias: Toggle garden water valve via NFC
+  trigger:
+  - platform: tag
+    tag_id: !secret water_valve_nfc_tag_id
+  action:
+  - service: switch.toggle
+    entity_id: switch.garden_water_valve

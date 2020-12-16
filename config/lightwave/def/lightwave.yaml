@@ -1,0 +1,38 @@
+host: 10.0.0.20
+lights:
+  R1D1:
+    name: Living Room Light
+  R2D1:
+    name: Kitchen Table Light
+  R2D2:
+    name: Kitchen Stove Light
+  R2D3:
+    name: Kitchen Main Light
+  R2D4:
+    name: Kitchen Neon Light
+  R3D1:
+    name: Upper Stairs Light
+  R5D1:
+    name: Bathroom Light
+  R6D1:
+    name: Toilet Light
+  R7D1:
+    name: Entrance Light
+  R8D1:
+    name: Utility Room Light
+  R9D1:
+    name: Study Light
+  R10D1:
+    name: Julia Light
+  R11D1:
+    name: Catherine Light
+  R12D1:
+    name: Bedroom Light 1
+  R12D2:
+    name: Bedroom Light 2
+  R13D1:
+    name: Guest Room Light
+  R14D1:
+    name: Shower Light
+  R15D1:
+    name: Lower Stairs Light

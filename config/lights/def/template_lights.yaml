@@ -1,0 +1,50 @@
+- platform: template
+  lights:
+    kitchen_light:
+      friendly_name: "Kitchen Light"
+      value_template: "{{ states.light.kitchen_main_light.state == 'on' or
+                          states.light.kitchen_table_light.state == 'on' or
+                          states.light.kitchen_neon_light.state == 'on' or
+                          states.light.kitchen_stove_light.state == 'on' }}"
+      turn_on:
+        service: light.turn_on
+        data:
+          entity_id:
+          - light.kitchen_main_light
+          - light.kitchen_table_light
+          - light.kitchen_stove_light
+          - light.kitchen_neon_light
+      turn_off:
+        service: light.turn_off
+        data:
+          entity_id:
+          - light.kitchen_main_light
+          - light.kitchen_table_light
+          - light.kitchen_stove_light
+          - light.kitchen_neon_light
+    bedroom_light:
+        friendly_name: "Bedroom Light"
+        value_template: "{{ states.light.bedroom_light_1.state == 'on' or
+                            states.light.bedroom_light_2.state == 'on' }}"
+        turn_on:
+          service: light.turn_on
+          data:
+            entity_id:
+            - light.bedroom_light_1
+            - light.bedroom_light_2
+        turn_off:
+          service: light.turn_off
+          data:
+            entity_id:
+            - light.bedroom_light_1
+            - light.bedroom_light_2
+    fish_tank_light:
+      friendly_name: Fish Tank Light
+      icon_template: 'mdi:fishbowl-outline'
+      value_template: "{{ states.switch.smartthings_outlet.attributes.current_power_w > 0.7 }}"
+      turn_on:
+        - service: script.turn_on_fish_tank
+      turn_off:
+        - service: script.turn_off_fish_tank
+      set_color:
+        - service: script.ir_cmd_fishtank_color_{{ (h * 15.0 / 360.1) | int }}

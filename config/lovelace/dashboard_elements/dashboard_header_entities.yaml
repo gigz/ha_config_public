@@ -1,0 +1,14 @@
+type: horizontal-stack
+cards:
+  - entities:
+      - entity: sensor.gigz_smart_location
+      - entity: sensor.iryna_smart_location
+      - entity: person.tamara_shepeleva
+    show_name: false
+    type: glance
+  - entities:
+      - entity: sensor.mail_amazon_packages_remaining
+      - entity: sensor.home_mode
+      - entity: sensor.smart_home_health
+    show_name: false
+    type: glance

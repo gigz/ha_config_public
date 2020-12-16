@@ -1,0 +1,34 @@
+- id: random_away_evening_lights
+  alias: Turn on lights randomly while away in the evening
+  trigger:
+  - platform: time_pattern
+    minutes: "/15"
+  condition:
+  - condition: state
+    entity_id: sensor.home_mode
+    state: Away Evening
+  action:
+  - service: script.light_with_delay
+    data:
+      entity_id: '{{ expand("group.all_lightwave_lights") | map(attribute="entity_id") | list | random }}'
+      delay_before: '{{ range(1, 1800) | random | int }}'
+      keep_on_for: '{{ range(300, 5000) | random | int }}'
+      skip: '{{ ["on", "off"] | random }}'
+  mode: parallel
+
+- id: turn_lights_off_when_everyone_leaves
+  alias: Turn Lights Off When Everyone Leaves
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    to:
+    - Away
+    - Away Morning
+    - Away Night
+    # Don't do it during evening as we simulate presence
+  condition: []
+  action:
+  - service: light.turn_off
+    data:
+      entity_id:
+      - group.all_lightwave_lights

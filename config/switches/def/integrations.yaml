@@ -1,0 +1,16 @@
+  - platform: aarlo
+    siren: True
+    all_sirens: True
+    snapshot: True
+    doorbell_silence: True
+    siren_volume: 1
+    siren_duration: 10
+
+  - platform: netgear_enhanced
+    host: !secret orbi_host
+    port: 80
+    username: !secret orbi_username
+    password: !secret orbi_password
+    resources:
+      - '2g_guest_wifi'
+      - '5g_guest_wifi'

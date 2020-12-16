@@ -1,0 +1,62 @@
+- id: morning_wakeup
+  alias: Determine If Someone Woke Up In The Morning
+  trigger:
+    platform: state
+    entity_id: binary_sensor.entrance_motion_sensor_motion
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.home_mode
+        state:
+        - Night
+        - Morning
+      - condition: state
+        entity_id: binary_sensor.lower_stairs_motion_sensor_motion
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.someone_is_awake_in_the_morning
+        state: 'off'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.someone_is_awake_in_the_morning
+
+# Morning wakeup via NFC tag
+- id: morning_wakeup_nfc
+  alias: Determine If Someone Woke Up In The Morning by NFC Tag Scan
+  trigger:
+    platform: tag
+    tag_id: !secret bedroom_wakeup_nfc_tag_id
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.home_mode
+        state:
+        - Night
+        - Morning
+      - condition: state
+        entity_id: input_boolean.someone_is_awake_in_the_morning
+        state: 'off'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.someone_is_awake_in_the_morning
+
+# Cleanup morning wakeup when day starts
+- id: morning_wakeup_cleanup
+  alias: Morning Wakeup Cleanup
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.it_is_dark_outside
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: input_boolean.someone_is_awake_in_the_morning
+    state: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.someone_is_awake_in_the_morning

@@ -1,0 +1,48 @@
+- id: midnight_cleanup
+  alias: midnight_cleanup
+  trigger:
+  - platform: time
+    at: '00:00:40'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.home_mode_override
+      option: No Override
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.someone_is_awake_in_the_morning
+
+- id: pre_morning_cleanup
+  alias: Pre-morning cleanup
+  trigger:
+  - platform: time
+    at: '04:44:10'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.home_mode_override
+      option: No Override
+
+- id: thermostat_mode_override_cleanup
+  alias: thermostat_mode_override_cleanup
+  trigger:
+  - platform: state
+    entity_id: input_select.thermostat_mode_override
+    to: Boost
+    for:
+      minutes: 30 # sync this with boosting in thermostat_boost_mode
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.thermostat_mode_override
+      option: No Override
+
+- id: current_calendar_event_dismissed_cleanup
+  alias: Cleanup Current Calendar Event Dismissed State
+  trigger:
+  - platform: state
+    entity_id: calendar.home_assistant_reminders
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.current_calendar_event_dismissed

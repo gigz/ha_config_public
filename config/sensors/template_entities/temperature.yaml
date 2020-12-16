@@ -1,0 +1,10 @@
+max_temperature_difference_for_watched_thermostat:
+  friendly_name: "Max Temperatre Difference For Watched Thermostat"
+  value_template: >
+    {% set ns = namespace(max=0.0) %}
+    {% for thermostat in expand("group.watched_thermostats") %}
+      {% if thermostat.attributes.temperature - thermostat.attributes.current_temperature > ns.max %}
+        {% set ns.max = thermostat.attributes.temperature - thermostat.attributes.current_temperature %}
+      {% endif %}
+    {% endfor %}
+    {{ ns.max }}

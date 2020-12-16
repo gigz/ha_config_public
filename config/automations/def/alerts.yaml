@@ -1,0 +1,172 @@
+- id: notify_when_emergency_detected
+  alias: Notify When Emergency Detected
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.emergency_detected
+    to: "on"
+  condition: []
+  action:
+  - service: notify.notify
+    data:
+      message: "Please check smoke, CO, gas and leak detectors immediately!"
+      title: "Emergency Detected!"
+  - service: notify.twilio_call
+    data:
+      message: "Emergency Detected! Please check smoke, CO, gas and leak detectors immediately!"
+      target: !secret gigz_phone_no
+
+# TODO: Add intrusion state and armed/disarmed state for monitoring rather than rely on specific sensors and home modes
+- id: notify_when_intrusion_detected
+  alias: Notify When Intrusion Detected
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.entrance_door_sensor_contact
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.garden_door_sensor_contact
+    to: "on"
+  condition:
+  - condition: state
+    entity_id: sensor.home_mode
+    state:
+    - Night
+    - Away Night
+    - Away
+    - Away Morning
+    - Away Evening
+  action:
+  - service: notify.notify
+    data:
+      message: "Please check cameras now - is there an imposter at home?"
+      title: "Intrusion Detected!"
+  - service: notify.twilio_call
+    data:
+      message: "Intrusion Detected! Please check cameras now - is there an imposter at home?"
+      target:!secret gigz_phone_no
+
+- id: notify_tv_left_on
+  alias: Notify When TV Is Left On
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    from:
+    - Home
+    - Morning
+    - Evening
+    to:
+    - Night
+    - Away Night
+    - Away
+    - Away Morning
+    - Away Evening
+  condition:
+  - condition: state
+    entity_id: switch.tv
+    state: "on"
+  action:
+  - service: notify.notify
+    data:
+      message: "Please check if TV should be turned off"
+      title: "TV Left Turned On"
+
+- id: notify_door_left_open
+  alias: Notify When Door Is Left Opened
+  trigger:
+  - platform: state
+    entity_id: sensor.home_mode
+    from:
+    - Home
+    - Morning
+    - Evening
+    to:
+    - Night
+    - Away Night
+    - Away
+    - Away Morning
+    - Away Evening
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.entrance_door_sensor_contact
+      state: "on"
+    - condition: state
+      entity_id: binary_sensor.garden_door_sensor_contact
+      state: "on"
+  action:
+  - service: notify.notify
+    data:
+      message: "Please consider closing the door"
+      title: "Door Left Open"
+
+- id: notify_window_left_open_when_away_and_rainy
+  alias: Notify When Window Is Left Opened When Away In Rainy Weather
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.someone_is_at_home
+    to: "off"
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: sensor.openweathermap_forecast_condition
+      state: rainy
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.bedroom_left_window_contact
+        state: "on"
+      - condition: state
+        entity_id: binary_sensor.bedroom_right_window_contact
+        state: "on"
+  action:
+  - service: notify.notify
+    data:
+      message: "Rain is in the forecast but skylights were left opened."
+      title: "Skylights Left Open"
+
+- id: notify_window_left_open_when_rain
+  alias: Notify When Window Is Left Opened And Rain Comes
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.netatmo_whatley_avenue_base_station_rain_gauge_rain
+    above: 0
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.bedroom_left_window_contact
+      state: "on"
+    - condition: state
+      entity_id: binary_sensor.bedroom_right_window_contact
+      state: "on"
+  action:
+  - service: notify.notify
+    data:
+      message: "It's raining but skylights were left opened."
+      title: "Skylights Left Open"
+  - service: notify.twilio_call
+    data:
+      message: "It's raining but skylights were left opened!"
+      target: !secret gigz_phone_no
+
+- id: notify_when_co2_level_too_high
+  alias: Notify When CO2 Level Is Too High
+  trigger:
+  - platform: numeric_state
+    entity_id:
+      - sensor.netatmo_whatley_avenue_base_station_study_indoor_module_co2
+    above: 1000
+  - platform: numeric_state
+    entity_id:
+      - sensor.netatmo_whatley_avenue_base_station_co2
+    above: 1000
+  - platform: numeric_state
+    entity_id:
+      - sensor.netatmo_whatley_avenue_base_station_bedroom_indoor_module_co2
+    above: 1000
+  action:
+  - service: notify.notify
+    data:
+      message: "{{ trigger.friendly_name }} sensor detected too high CO2 levels. Consider opening windows!"
+      title: "Too High CO2 Level"

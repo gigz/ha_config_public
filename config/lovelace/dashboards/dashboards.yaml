@@ -1,0 +1,22 @@
+title: Home
+views:
+  - path: entrance
+    title: Entrance
+    panel: true
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - !include ../dashboard_elements/calendar_event_notification.yaml
+          - !include ../dashboard_elements/kitchen_notification.yaml
+          - !include ../dashboard_elements/dashboard_header_entities.yaml
+          - type: horizontal-stack
+            cards:
+              - type: vertical-stack
+                cards:
+                  - !include ../dashboard_elements/clock.yaml
+                  - !include ../dashboard_elements/hourly_weather.yaml
+                  - !include ../dashboard_elements/daily_weather.yaml
+              - type: vertical-stack
+                cards:
+                  - !include ../dashboard_elements/map_basic.yaml

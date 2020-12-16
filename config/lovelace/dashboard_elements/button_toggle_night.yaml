@@ -1,0 +1,22 @@
+type: 'custom:button-card'
+entity: input_select.home_mode_override
+state:
+  - value: Night
+    name: Cancel Night
+    color: var(--paper-item-icon-active-color)
+  - value: Away Night
+    name: Cancel Night
+    color: var(--paper-item-icon-active-color)
+  - operator: default
+    name: Activate Night
+    color: var(--paper-item-icon-color)
+tap_action:
+  action: call-service
+  service: script.toggle_deep_night_override
+icon: 'mdi:sleep'
+styles:
+  card:
+    - height: 100%
+  name:
+    - font-size: 13px
+    - align-self: middle

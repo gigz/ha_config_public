@@ -1,0 +1,36 @@
+braava_jet_mop_tank_level:
+  friendly_name: Braava Jet Mop Tank Level
+  unit_of_measurement: '%'
+  value_template: "{{ states.vacuum.braava_jet_mop.attributes.tank_level }}"
+braava_jet_mop_detected_pad:
+  friendly_name: Braava Jet Mop Detected Pad
+  value_template: "{{ states.vacuum.braava_jet_mop.attributes.detected_pad }}"
+low_battery_devices_count:
+  friendly_name: "Number Of Low Battery Devices"
+  icon_template: mdi:battery-alert-variant-outline
+  value_template: >-
+    {{ expand('group.batteries_to_watch') | map(attribute='state') | map('float') | select('lessthan', 30.0) | list | count }}
+smart_home_health:
+  friendly_name: "Home Health"
+  value_template: >-
+    {% if states.binary_sensor.updates_pending.state == 'on' or
+          states.sensor.low_battery_devices_count.state != '0' or
+          states.binary_sensor.spa_needs_attention.state == 'on' or
+          states.binary_sensor.braava_jet_mop_needs_attention.state == 'on' or
+          states.binary_sensor.roomba_s9_vacuum_needs_attention.state == 'on' or
+          states.binary_sensor.emergency_detected.state == 'on' %}
+      Attention Needed
+    {% else %}
+      All Good
+    {% endif %}
+  icon_template: >-
+    {% if states.binary_sensor.updates_pending.state == 'on' or
+          states.sensor.low_battery_devices_count.state != '0' or
+          states.binary_sensor.spa_needs_attention.state == 'on' or
+          states.binary_sensor.braava_jet_mop_needs_attention.state == 'on' or
+          states.binary_sensor.roomba_s9_vacuum_needs_attention.state == 'on' or
+          states.binary_sensor.emergency_detected.state == 'on' %}
+      mdi:alert
+    {% else %}
+      mdi:thumb-up
+    {% endif %}

@@ -1,0 +1,78 @@
+# Turn on video conference lights
+- id: turn_on_video_conference_lights
+  alias: turn_on_video_conference_lights
+  trigger:
+  - platform: state
+    entity_id: input_boolean.video_conference_lights
+    to: 'on'
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.computer_light_1
+      brightness: 255
+      kelvin: 5000
+  - service: light.turn_on
+    data:
+      entity_id: light.computer_light_2
+      brightness: 255
+      kelvin: 5000
+  - service: light.turn_on
+    data:
+      entity_id: light.computer_light_3
+      brightness: 255
+      kelvin: 5000
+  - service: light.turn_on
+    data:
+      entity_id: light.computer_light_4
+      brightness: 255
+      kelvin: 5000
+  - service: light.turn_on
+    data:
+      entity_id: light.computer_light_5
+      brightness: 255
+      kelvin: 5000
+  - service: light.turn_on
+    data:
+      entity_id: light.computer_light_6
+      brightness: 255
+      kelvin: 5000
+
+# Turn on video conference lights via NFC
+- id: nfc_conference_lights
+  alias: Toggle Conference Lights Through NFC
+  trigger:
+    platform: tag
+    tag_id: !secret video_conference_nfc_tag_id
+  action:
+  - service: input_boolean.toggle
+    data:
+      entity_id: input_boolean.video_conference_lights
+
+# Turn off video conference lights
+- id: turn_off_video_conference_lights
+  alias: turn_off_video_conference_lights
+  trigger:
+  - platform: state
+    entity_id: input_boolean.video_conference_lights
+    to: 'off'
+  condition: []
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.computer_light_1
+  - service: light.turn_off
+    data:
+      entity_id: light.computer_light_2
+  - service: light.turn_off
+    data:
+      entity_id: light.computer_light_3
+  - service: light.turn_off
+    data:
+      entity_id: light.computer_light_4
+  - service: light.turn_off
+    data:
+      entity_id: light.computer_light_5
+  - service: light.turn_off
+    data:
+      entity_id: light.computer_light_6

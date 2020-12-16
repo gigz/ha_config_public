@@ -1,0 +1,21 @@
+- id: open_the_door_from_ios
+  alias: Open The Door From iOS
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionID: Open The Door
+  action:
+  - service: lock.unlock
+    data:
+      entity_id: lock.door_lock
+
+- id: toggle_night_from_ios
+  alias: Toggle Night From iOS
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionID: Activate Night
+  action:
+  - service: script.toggle_deep_night_override

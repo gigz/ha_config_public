@@ -1,0 +1,35 @@
+light_with_delay:
+  alias: Light With Delay
+  icon: "hass:lightbulb"
+  description: "Turn on light with delay for certain period of time"
+  fields:
+    entity_id:
+      description: "The light bulb to cycle"
+      example: "light.kitchen"
+    delay_before:
+      description: "Delay before turning on light (in seconds)"
+      example: "90"
+    keep_on_for:
+      description: "Keep light on for (in seconds)"
+      example: "600"
+    skip:
+      description: "Whether to skip turning on light"
+      example: "off"
+  mode: parallel
+  sequence:
+    - condition: template
+      value_template: "{{ skip == 'off' }}"
+    - delay: "{{ delay_before }}"
+    - condition: state
+      entity_id: sensor.home_mode
+      state: Away Evening
+    - service: light.turn_on
+      data:
+        entity_id: "{{ entity_id }}"
+    - delay: "{{ keep_on_for }}"
+    - condition: state
+      entity_id: sensor.home_mode
+      state: Away Evening
+    - service: light.turn_off
+      data:
+        entity_id: "{{ entity_id }}"

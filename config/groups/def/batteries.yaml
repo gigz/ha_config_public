@@ -1,0 +1,54 @@
+batteries_to_watch:
+  name: Batteries To Watch For Low Level
+  entities:
+    - sensor.aarlo_battery_level_driveway_camera
+    - sensor.aarlo_battery_level_entrance_camera
+    - sensor.aarlo_battery_level_front_door_camera
+    - sensor.aarlo_battery_level_front_top_camera
+    - sensor.aarlo_battery_level_garden_camera
+    - sensor.aarlo_battery_level_kitchen_camera
+    - sensor.aarlo_battery_level_living_room_camera
+    - sensor.aarlo_battery_level_study_camera
+    - sensor.front_door_battery
+    - sensor.door_lock_battery
+    - sensor.netatmo_whatley_avenue_base_station_wind_gauge_battery_percent
+    - sensor.netatmo_whatley_avenue_base_station_rain_gauge_battery_percent
+    - sensor.netatmo_whatley_avenue_base_station_outdoor_module_battery_percent
+    - sensor.netatmo_whatley_avenue_base_station_bedroom_indoor_module_battery_percent
+    - sensor.netatmo_whatley_avenue_base_station_study_indoor_module_battery_percent
+    - sensor.julia_thermostat_battery
+    - sensor.catherine_thermostat_battery
+    - sensor.kitchen_table_thermostat_battery
+    - sensor.kitchen_main_thermostat_battery
+    - sensor.bedroom_thermostat_battery
+    - sensor.entrance_thermostat_battery
+    - sensor.living_room_thermostat_battery
+    - sensor.guest_room_thermostat_battery
+    - sensor.study_thermostat_battery
+    - sensor.lower_stairs_motion_sensor_battery
+    # - sensor.toilet_motion_sensor_battery uncomment when it is clear that sensor is working (gets below 85%)
+    # - sensor.shower_motion_sensor_battery uncomment when it is clear that sensor is working (gets below 88%)
+    # - sensor.entrance_motion_sensor_battery uncomment when it is clear that sensor is working (gets below 100%)
+    # - sensor.upper_stairs_motion_sensor_battery uncomment when it is clear that sensor is working (gets below 88%)
+    # - sensor.bathroom_motion_sensor_battery uncomment when it is clear that sensor is working (gets below 100%)
+    # - sensor.utility_room_motion_sensor_battery uncomment when it is clear that sensor is working (gets below 100%)
+    - sensor.entrance_door_sensor_battery
+    # - sensor.garden_door_sensor_battery  uncomment when it is clear that sensor is working (gets below 100%)
+    # - sensor.deep_night_button_battery  uncomment when it is clear that sensor is working (gets below 80%)
+    # - sensor.toilet_tap_water_leak_sensor_battery 33%
+    # - sensor.bathroom_tap_water_leak_sensor_battery 78%
+    # - sensor.utility_water_leak_sensor_battery 78%
+    # - sensor.shower_water_leak_sensor_battery 86%
+    # - sensor.kitchen_water_leak_sensor_battery 78%
+    - sensor.bathroom_floor_water_leak_sensor_battery
+    # - sensor.living_room_temperature_sensor_battery 84%
+    # - sensor.study_temperature_sensor_battery 100%
+    - sensor.shower_hygrometer_battery
+    # - sensor.entrance_temperature_sensor_battery 40%
+    # - sensor.julia_temperature_sensor_battery 41%
+    # - sensor.catherine_temperature_sensor_battery 76%
+    # - sensor.bedroom_temperature_sensor_battery 86%
+    # - sensor.guest_room_temperature_sensor_battery 100%
+    # - sensor.kitchen_main_temperature_sensor_battery 100%
+    # - sensor.kitchen_table_temperature_sensor_battery 100%
+    - sensor.outdoor_siren_battery

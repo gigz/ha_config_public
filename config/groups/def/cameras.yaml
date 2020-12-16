@@ -1,0 +1,12 @@
+all_cameras:
+  name: All Cameras
+  entities:
+    - camera.aarlo_front_door_camera
+    - camera.aarlo_driveway_camera
+    - camera.aarlo_garden_camera
+    - camera.aarlo_kitchen_camera
+    - camera.aarlo_entrance_camera
+    - camera.aarlo_living_room_camera
+    - camera.aarlo_study_camera
+    - camera.aarlo_julia_camera
+    - camera.aarlo_cathrine_camera

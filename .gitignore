@@ -1,0 +1,30 @@
+*
+
+# include config files
+!*.yaml
+!.gitignore
+!*.m
+!*.js
+!*.sh
+
+# include config folders
+!config
+!config/**
+
+# include customized components
+!www/
+!www/community
+!www/community/weather-card-chart
+!www/community/weather-card-chart/**
+
+# Ignore folders
+.storage
+.cloud
+.google.token
+
+# Ignore secrets
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+google_calendars.yaml
+

@@ -1,0 +1,13 @@
+  - platform: netgear
+    host: !secret orbi_host
+    port: 80
+    username: !secret orbi_username
+    password: !secret orbi_password
+    devices:
+      - "Iryna iPhone 12 Pro Max"
+      - "Iryna Apple Watch 6"
+      - "Gigz iPhone 11 Pro"
+      - "Gigz Apple Watch 3"
+      - "Tamara Moto X"
+    accesspoints:
+      - Router

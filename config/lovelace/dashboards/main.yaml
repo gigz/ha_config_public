@@ -1,0 +1,46 @@
+views:
+  - panel: true
+    path: people
+    theme: ''
+    title: Overview
+    icon: 'mdi:home'
+    badges: []
+    cards:
+      - cards:
+          - !include ../dashboard_elements/calendar_event_notification.yaml
+          - !include ../dashboard_elements/kitchen_notification.yaml
+          - !include ../dashboard_elements/dashboard_header_entities.yaml
+          - cards:
+              - type: vertical-stack
+                cards:
+                  - !include ../dashboard_elements/clock.yaml
+                  - !include ../dashboard_elements/hourly_weather.yaml
+                  - !include ../dashboard_elements/daily_weather.yaml
+              - type: vertical-stack
+                cards:
+                  - !include ../dashboard_elements/camera_top.yaml
+                  - !include ../dashboard_elements/spotify.yaml
+                  - type: grid
+                    cards:
+                      - !include ../dashboard_elements/button_heating_boost.yaml
+                      - !include ../dashboard_elements/button_toggle_night.yaml
+                      - !include ../dashboard_elements/button_toggle_guest_wifi.yaml
+              - type: vertical-stack
+                cards:
+                  - !include ../dashboard_elements/map_basic.yaml
+                  - !include ../dashboard_elements/air_quality.yaml
+            type: horizontal-stack
+        type: vertical-stack
+  - !include ../pages/map.yaml
+  - !include ../pages/tv.yaml
+  - title: CCTV
+    panel: true
+    path: cameras
+    icon: 'mdi:cctv'
+    theme: ''
+    badges: []
+    cards:
+      - !include ../dashboard_elements/cameras_grid.yaml
+  - !include ../pages/system_health.yaml
+  - !include ../pages/temperatures.yaml
+  - !include ../pages/covid.yaml

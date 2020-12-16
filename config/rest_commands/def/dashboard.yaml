@@ -1,0 +1,11 @@
+turn_dashboard_off:
+  url: 'http://{{dashboard_ip}}:2323/?password={{password}}&cmd=screenOff'
+  method: POST
+
+turn_dashboard_on:
+  url: 'http://{{dashboard_ip}}:2323/?password={{password}}&cmd=screenOn'
+  method: POST
+
+set_dashboard_boolean_setting:
+  url: 'http://{{dashboard_ip}}:2323/?password={{password}}&&cmd=setBooleanSetting&key={{setting}}&value={{value}}'
+  method: POST

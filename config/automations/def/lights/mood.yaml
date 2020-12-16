@@ -1,0 +1,188 @@
+- id: cycle_through_light_colors
+  alias: cycle_through_light_colors
+  trigger:
+  - platform: time_pattern
+    minutes: "/1"
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: calendar.home_assistant_holidays
+      state: "off"
+    - condition: state
+      entity_id: sensor.home_mode
+      state:
+        - Evening
+        - Away Evening
+  action:
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.bedroom_lamp
+      brightness: 13
+      cycle: 180
+      cycle_start_offset: 90
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.bedroom_lightstrip
+      brightness: 13
+      cycle: 180
+      cycle_start_offset: 100
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.garden_tree_light_1
+      brightness: 255
+      cycle: 180
+      cycle_start_offset: 30
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.garden_tree_light_2
+      brightness: 255
+      cycle: 180
+      cycle_start_offset: 50
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.garden_tree_light_3
+      brightness: 255
+      cycle: 180
+      cycle_start_offset: 70
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.garden_tree_light_4
+      brightness: 255
+      cycle: 180
+      cycle_start_offset: 90
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.garden_lamp_1
+      brightness: 255
+      cycle: 180
+      cycle_start_offset: 30
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.garden_lamp_2
+      brightness: 255
+      cycle: 180
+      cycle_start_offset: 30
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.bloomik
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 0
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.iriska
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 10
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.kitchen_lightstrip_1
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 20
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.lidl_lightstrip
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 30
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.kitchen_lightstrip_2
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 40
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.living_room_stand_lamp
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 60
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.living_room_lightstrip
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 70
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.living_room_tv_light_1
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 80
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.living_room_tv_light_2
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 90
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.living_room_tv_light_3
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 100
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.living_room_tv_light_4
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 110
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.fish_tank_light
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 100
+  - condition: state
+    entity_id: input_boolean.video_conference_lights
+    state: "off"
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_1
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 30
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_2
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 40
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_3
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 50
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_4
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 60
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_5
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 70
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.computer_light_6
+      brightness: 217
+      cycle: 180
+      cycle_start_offset: 80
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.garden_spotlight_1
+      brightness: 102
+      cycle: 180
+      cycle_start_offset: 60
+  - service: script.color_lights_cycle
+    data:
+      entity_id: light.garden_spotlight_2
+      brightness: 102
+      cycle: 180
+      cycle_start_offset: 60

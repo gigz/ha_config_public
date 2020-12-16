@@ -1,0 +1,26 @@
+color_lights_cycle:
+  alias: Color Lights Cycle
+  icon: "hass:lightbulb"
+  description: "Cycles light through different color"
+  fields:
+    entity_id:
+      description: "The light bulb to cycle"
+      example: "home.colorbulb1"
+    brightness:
+      description: "Brightness to set"
+      example: 85
+    cycle:
+      description: "Cycle Length"
+      example: 120
+    cycle_start_offset:
+      description: "Cycle Start Offset"
+      example: 10
+  mode: queued
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: "{{ entity_id }}"
+        brightness: "{{ brightness }}"
+        hs_color:
+          - "{{ ((as_timestamp(strptime(states.sensor.date_time.state, '%Y-%m-%d, %H:%M')) / 60 + (cycle_start_offset | int)) * 360 / (cycle | int))% 360 }}"
+          - 100

@@ -1,0 +1,7 @@
+- platform: aarlo
+  monitored_conditions:
+  - motion
+  - sound
+  - ding
+  - cry
+  - connectivity

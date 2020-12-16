@@ -1,0 +1,16 @@
+guest_wifi:
+  friendly_name: "Guest Wifi"
+  icon_template: "mdi:wifi"
+  value_template: "{{ states.switch.ng_enhanced_2g_guest_wifi.state }}"
+  turn_on:
+    service: switch.turn_on
+    data:
+      entity_id:
+      - switch.ng_enhanced_2g_guest_wifi
+      - switch.ng_enhanced_5g_guest_wifi
+  turn_off:
+    service: switch.turn_off
+    data:
+      entity_id:
+      - switch.ng_enhanced_2g_guest_wifi
+      - switch.ng_enhanced_5g_guest_wifi

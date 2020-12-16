@@ -1,0 +1,16 @@
+type: 'custom:button-card'
+entity: input_select.thermostat_mode_override
+name: Unlock Door
+color: var(--paper-item-icon-color)
+styles:
+  card:
+    - height: 100%
+  name:
+    - font-size: 13px
+    - align-self: middle
+tap_action:
+  action: call-service
+  service: lock.unlock
+  service_data:
+    entity_id: lock.door_lock
+icon: 'mdi:lock-open'

@@ -1,0 +1,7 @@
+type: 'custom:weather-card'
+entity: weather.home
+current: false
+details: false
+forecast: true
+hourly_forecast: false
+number_of_forecasts: 5

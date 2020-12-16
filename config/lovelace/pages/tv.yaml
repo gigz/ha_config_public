@@ -1,0 +1,82 @@
+title: TV
+path: tv
+panel: true
+icon: 'mdi:television'
+theme: ''
+badges: []
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: 'custom:button-card'
+            entity: switch.tv
+            icon: 'hass:power'
+            name: Power
+          - type: button
+            tap_action:
+              action: call-service
+              service: script.tv_source_xbox
+            entity: script.tv_source_xbox
+            icon: 'mdi:microsoft-xbox-controller'
+            name: Xbox
+          - type: button
+            tap_action:
+              action: call-service
+              service: script.tv_volume_down
+            entity: script.tv_volume_down
+            icon: 'mdi:volume-minus'
+            name: '-'
+      - type: vertical-stack
+        cards:
+          - type: button
+            tap_action:
+              action: call-service
+              service: script.tv_source_amazon
+            entity: script.tv_source_amazon
+            icon: 'mdi:amazon'
+            name: Fire TV
+          - type: button
+            tap_action:
+              action: call-service
+              service: script.tv_source_home_theater
+            entity: script.tv_source_home_theater
+            icon: 'mdi:album'
+            name: DVD
+          - type: button
+            tap_action:
+              action: call-service
+              service: script.tv_mute
+            entity: script.tv_mute
+            icon: 'mdi:volume-mute'
+            name: Mute
+          - type: button
+            tap_action:
+              action: call-service
+              service: script.tv_optical
+            entity: script.tv_optical
+            icon: 'mdi:video-input-component'
+            name: Optical
+      - type: vertical-stack
+        cards:
+          - type: button
+            tap_action:
+              action: call-service
+              service: script.tv_source_google
+            icon: 'mdi:google-chrome'
+            entity: script.tv_source_google
+            name: Chromecast
+          - type: button
+            tap_action:
+              action: call-service
+              service: script.tv_source_hdmi
+            entity: script.tv_source_hdmi
+            icon: 'mdi:video-input-hdmi'
+            name: HDMI
+          - type: button
+            tap_action:
+              action: call-service
+              service: script.tv_volume_up
+            entity: script.tv_volume_up
+            icon: 'mdi:volume-plus'
+            name: +

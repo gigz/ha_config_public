@@ -1,0 +1,22 @@
+type: 'custom:mini-media-player'
+entity: media_player.spotify_volodymyr_giginiak
+artwork: cover
+source: icon
+shortcuts:
+  columns: 4
+  buttons:
+    - icon: 'mdi:silverware-variant'
+      type: source
+      id: Kitchen
+    - icon: 'mdi:bed'
+      type: source
+      id: Bedroom Speakers (L+R)
+    - icon: 'mdi:laptop'
+      type: source
+      id: Volodymyr’s MacBook Pro
+    - icon: 'mdi:pencil'
+      type: source
+      id: Study
+    - icon: 'mdi:thumb-up-outline'
+      type: playlist
+      id: 'spotify:playlist:0tEtkfBjPYRoPC12D06tV8'

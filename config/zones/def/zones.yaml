@@ -1,0 +1,10 @@
+- name: Car
+  latitude: 0.0
+  longitude: 0.0
+  radius: 10
+  icon: mdi:car-hatchback
+#    passive: true
+# - name: Home Study
+#   radius: 10
+#   icon: mdi:laptop
+#    passive: true

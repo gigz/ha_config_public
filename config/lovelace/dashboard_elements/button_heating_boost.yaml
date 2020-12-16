@@ -1,0 +1,19 @@
+type: 'custom:button-card'
+entity: input_select.thermostat_mode_override
+state:
+  - value: Boost
+    name: Cancel Heating Boost
+    color: var(--paper-item-icon-active-color)
+  - operator: default
+    name: Heating Boost
+    color: var(--paper-item-icon-color)
+tap_action:
+  action: call-service
+  service: script.toggle_heating_boost
+icon: 'mdi:fire'
+styles:
+  card:
+    - height: 100%
+  name:
+    - font-size: 13px
+    - align-self: middle
